@@ -1903,69 +1903,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Get metadata": {
-            "parameters": {
-              "resourceName": "service1",
-              "resourceGroupName": "rg1",
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1",
-                  "name": "service1",
-                  "location": "West US",
-                  "type": "Microsoft.HealthcareApis/services",
-                  "kind": "fhir-R4",
-                  "etag": "etagvalue",
-                  "tags": {},
-                  "properties": {
-                    "provisioningState": "Creating",
-                    "accessPolicies": [
-                      {
-                        "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                      },
-                      {
-                        "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                      }
-                    ],
-                    "cosmosDbConfiguration": {
-                      "offerThroughput": 1000,
-                      "keyVaultKeyUri": "https://my-vault.vault.azure.net/keys/my-key"
-                    },
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audience": "https://azurehealthcareapis.com",
-                      "smartProxyEnabled": true
-                    },
-                    "corsConfiguration": {
-                      "origins": [
-                        "*"
-                      ],
-                      "headers": [
-                        "*"
-                      ],
-                      "methods": [
-                        "DELETE",
-                        "GET",
-                        "OPTIONS",
-                        "PATCH",
-                        "POST",
-                        "PUT"
-                      ],
-                      "maxAge": 1440,
-                      "allowCredentials": false
-                    },
-                    "privateEndpointConnections": [],
-                    "publicNetworkAccess": "Disabled"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "put": {
@@ -2032,280 +1969,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Create or Update a service with all parameters": {
-            "parameters": {
-              "resourceName": "service1",
-              "resourceGroupName": "rg1",
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "serviceDescription": {
-                "location": "westus2",
-                "tags": {},
-                "kind": "fhir-R4",
-                "properties": {
-                  "accessPolicies": [
-                    {
-                      "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                    },
-                    {
-                      "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                    }
-                  ],
-                  "cosmosDbConfiguration": {
-                    "offerThroughput": 1000,
-                    "keyVaultKeyUri": "https://my-vault.vault.azure.net/keys/my-key"
-                  },
-                  "authenticationConfiguration": {
-                    "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                    "audience": "https://azurehealthcareapis.com",
-                    "smartProxyEnabled": true
-                  },
-                  "corsConfiguration": {
-                    "origins": [
-                      "*"
-                    ],
-                    "headers": [
-                      "*"
-                    ],
-                    "methods": [
-                      "DELETE",
-                      "GET",
-                      "OPTIONS",
-                      "PATCH",
-                      "POST",
-                      "PUT"
-                    ],
-                    "maxAge": 1440,
-                    "allowCredentials": false
-                  },
-                  "exportConfiguration": {
-                    "storageAccountName": "existingStorageAccount"
-                  },
-                  "privateEndpointConnections": [],
-                  "publicNetworkAccess": "Disabled"
-                },
-                "identity": {
-                  "type": "SystemAssigned"
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1",
-                  "name": "service1",
-                  "location": "West US 2",
-                  "type": "Microsoft.HealthcareApis/services",
-                  "kind": "fhir-R4",
-                  "etag": "etagvalue",
-                  "tags": {},
-                  "properties": {
-                    "provisioningState": "Creating",
-                    "accessPolicies": [
-                      {
-                        "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                      },
-                      {
-                        "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                      }
-                    ],
-                    "cosmosDbConfiguration": {
-                      "offerThroughput": 1000,
-                      "keyVaultKeyUri": "https://my-vault.vault.azure.net/keys/my-key"
-                    },
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audience": "https://azurehealthcareapis.com",
-                      "smartProxyEnabled": true
-                    },
-                    "corsConfiguration": {
-                      "origins": [
-                        "*"
-                      ],
-                      "headers": [
-                        "*"
-                      ],
-                      "methods": [
-                        "DELETE",
-                        "GET",
-                        "OPTIONS",
-                        "PATCH",
-                        "POST",
-                        "PUT"
-                      ],
-                      "maxAge": 1440,
-                      "allowCredentials": false
-                    },
-                    "exportConfiguration": {
-                      "storageAccountName": "existingStorageAccount"
-                    },
-                    "privateEndpointConnections": [],
-                    "publicNetworkAccess": "Disabled"
-                  },
-                  "identity": {
-                    "principalId": "03fe6ae0-952c-4e4b-954b-cc0364dd252e",
-                    "tenantId": "72f988bf-86f1-41af-91ab-2d8cd011db47",
-                    "type": "SystemAssigned"
-                  }
-                }
-              },
-              "201": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1",
-                  "name": "service1",
-                  "location": "West US 2",
-                  "type": "Microsoft.HealthcareApis/services",
-                  "kind": "fhir-R4",
-                  "etag": "etagvalue",
-                  "tags": {},
-                  "properties": {
-                    "provisioningState": "Creating",
-                    "accessPolicies": [
-                      {
-                        "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                      },
-                      {
-                        "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                      }
-                    ],
-                    "cosmosDbConfiguration": {
-                      "offerThroughput": 1000
-                    },
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audience": "https://azurehealthcareapis.com",
-                      "smartProxyEnabled": true
-                    },
-                    "corsConfiguration": {
-                      "origins": [
-                        "*"
-                      ],
-                      "headers": [
-                        "*"
-                      ],
-                      "methods": [
-                        "DELETE",
-                        "GET",
-                        "OPTIONS",
-                        "PATCH",
-                        "POST",
-                        "PUT"
-                      ],
-                      "maxAge": 1440,
-                      "allowCredentials": false
-                    },
-                    "exportConfiguration": {
-                      "storageAccountName": "existingStorageAccount"
-                    },
-                    "privateEndpointConnections": [],
-                    "publicNetworkAccess": "Disabled"
-                  },
-                  "identity": {
-                    "principalId": "03fe6ae0-952c-4e4b-954b-cc0364dd252e",
-                    "tenantId": "72f988bf-86f1-41af-91ab-2d8cd011db47",
-                    "type": "SystemAssigned"
-                  }
-                }
-              }
-            }
-          },
-          "Create or Update a service with minimum parameters": {
-            "parameters": {
-              "resourceName": "service2",
-              "resourceGroupName": "rg1",
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "serviceDescription": {
-                "location": "westus2",
-                "tags": {},
-                "kind": "fhir-R4",
-                "properties": {
-                  "accessPolicies": [
-                    {
-                      "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                    }
-                  ]
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service2",
-                  "name": "service2",
-                  "type": "Microsoft.HealthcareApis/services",
-                  "etag": "etagvalue",
-                  "location": "westus2",
-                  "kind": "fhir-R4",
-                  "tags": {},
-                  "properties": {
-                    "accessPolicies": [
-                      {
-                        "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                      }
-                    ],
-                    "cosmosDbConfiguration": {
-                      "offerThroughput": 1000
-                    },
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audience": "https://azurehealthcareapis.com",
-                      "smartProxyEnabled": false
-                    },
-                    "corsConfiguration": {
-                      "origins": [],
-                      "headers": [],
-                      "methods": [],
-                      "maxAge": null,
-                      "allowCredentials": false
-                    },
-                    "provisioningState": "Creating",
-                    "privateEndpointConnections": [],
-                    "publicNetworkAccess": "Disabled"
-                  }
-                }
-              },
-              "201": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service2",
-                  "name": "service2",
-                  "type": "Microsoft.HealthcareApis/services",
-                  "etag": "etagvalue",
-                  "location": "westus2",
-                  "kind": "fhir-R4",
-                  "tags": {},
-                  "properties": {
-                    "accessPolicies": [
-                      {
-                        "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                      }
-                    ],
-                    "cosmosDbConfiguration": {
-                      "offerThroughput": 1000,
-                      "keyVaultKeyUri": null
-                    },
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audience": "https://azurehealthcareapis.com",
-                      "smartProxyEnabled": false
-                    },
-                    "corsConfiguration": {
-                      "origins": [],
-                      "headers": [],
-                      "methods": [],
-                      "maxAge": null,
-                      "allowCredentials": false
-                    },
-                    "provisioningState": "Creating",
-                    "privateEndpointConnections": [],
-                    "publicNetworkAccess": "Disabled"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "patch": {
@@ -2362,78 +2025,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Patch service": {
-            "parameters": {
-              "resourceName": "service1",
-              "resourceGroupName": "rg1",
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "servicePatchDescription": {
-                "tags": {
-                  "tag1": "value1",
-                  "tag2": "value2"
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1",
-                  "name": "service1",
-                  "location": "West US",
-                  "type": "Microsoft.HealthcareApis/services",
-                  "kind": "fhir-R4",
-                  "etag": "etagvalue",
-                  "tags": {
-                    "tag1": "value1",
-                    "tag2": "value2"
-                  },
-                  "properties": {
-                    "provisioningState": "Creating",
-                    "accessPolicies": [
-                      {
-                        "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                      },
-                      {
-                        "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                      }
-                    ],
-                    "cosmosDbConfiguration": {
-                      "offerThroughput": 1000,
-                      "keyVaultKeyUri": "https://my-vault.vault.azure.net/keys/my-key"
-                    },
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audience": "https://azurehealthcareapis.com",
-                      "smartProxyEnabled": true
-                    },
-                    "corsConfiguration": {
-                      "origins": [
-                        "*"
-                      ],
-                      "headers": [
-                        "*"
-                      ],
-                      "methods": [
-                        "DELETE",
-                        "GET",
-                        "OPTIONS",
-                        "PATCH",
-                        "POST",
-                        "PUT"
-                      ],
-                      "maxAge": 1440,
-                      "allowCredentials": false
-                    },
-                    "privateEndpointConnections": [],
-                    "publicNetworkAccess": "Disabled"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "delete": {
@@ -2474,20 +2065,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Delete service": {
-            "parameters": {
-              "resourceName": "service1",
-              "resourceGroupName": "rg1",
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid"
-            },
-            "responses": {
-              "202": {},
-              "204": {}
-            }
-          }
         }
       }
     },
@@ -2526,72 +2103,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "List all services in subscription": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1",
-                      "name": "service1",
-                      "location": "West US",
-                      "type": "Microsoft.HealthcareApis/services",
-                      "kind": "fhir-R4",
-                      "etag": "etag",
-                      "tags": {},
-                      "properties": {
-                        "provisioningState": "Creating",
-                        "accessPolicies": [
-                          {
-                            "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                          },
-                          {
-                            "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                          }
-                        ],
-                        "cosmosDbConfiguration": {
-                          "offerThroughput": 1000,
-                          "keyVaultKeyUri": "https://my-vault.vault.azure.net/keys/my-key"
-                        },
-                        "authenticationConfiguration": {
-                          "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                          "audience": "https://azurehealthcareapis.com",
-                          "smartProxyEnabled": true
-                        },
-                        "corsConfiguration": {
-                          "origins": [
-                            "*"
-                          ],
-                          "headers": [
-                            "*"
-                          ],
-                          "methods": [
-                            "DELETE",
-                            "GET",
-                            "OPTIONS",
-                            "PATCH",
-                            "POST",
-                            "PUT"
-                          ],
-                          "maxAge": 1440,
-                          "allowCredentials": false
-                        },
-                        "privateEndpointConnections": [],
-                        "publicNetworkAccess": "Disabled"
-                      }
-                    }
-                  ],
-                  "nextLink": "https://host/subscriptions/subid/providers/Microsoft.HealthcareApis/services?api-version=2018-08-20-preview&%24skipToken=e30%3d"
                 }
               }
             }
@@ -2637,73 +2148,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "List all services in resource group": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "rgname"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/dddb8dcb-effb-4290-bb47-ce1e8440c729",
-                      "name": "service1",
-                      "location": "westus",
-                      "type": "Microsoft.HealthcareApis/services",
-                      "kind": "fhir-R4",
-                      "tags": {},
-                      "etag": "etagvalue",
-                      "properties": {
-                        "provisioningState": "Creating",
-                        "accessPolicies": [
-                          {
-                            "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                          },
-                          {
-                            "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                          }
-                        ],
-                        "cosmosDbConfiguration": {
-                          "offerThroughput": 1000,
-                          "keyVaultKeyUri": "https://my-vault.vault.azure.net/keys/my-key"
-                        },
-                        "authenticationConfiguration": {
-                          "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                          "audience": "https://azurehealthcareapis.com",
-                          "smartProxyEnabled": true
-                        },
-                        "corsConfiguration": {
-                          "origins": [
-                            "*"
-                          ],
-                          "headers": [
-                            "*"
-                          ],
-                          "methods": [
-                            "DELETE",
-                            "GET",
-                            "OPTIONS",
-                            "PATCH",
-                            "POST",
-                            "PUT"
-                          ],
-                          "maxAge": 1440,
-                          "allowCredentials": false
-                        },
-                        "privateEndpointConnections": [],
-                        "publicNetworkAccess": "Disabled"
-                      }
-                    }
-                  ],
-                  "nextLink": "https://host/subscriptions/subid/resourceGroups/rgname/providers/Microsoft.HealthcareApis/services?api-version=2018-08-20-preview&%24skipToken=e30%3d"
                 }
               }
             }
@@ -2759,27 +2203,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Check name availability": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "checkNameAvailabilityInputs": {
-                "type": "Microsoft.HealthcareApis/services",
-                "name": "serviceName"
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "nameAvailable": false,
-                  "reason": "AlreadyExists",
-                  "message": "Service name is not available."
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -2828,39 +2251,6 @@
         },
         "x-ms-pageable": {
           "nextLinkName": null
-        },
-        "x-ms-examples": {
-          "PrivateEndpointConnection_List": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "rgname",
-              "resourceName": "service1"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1/privateEndpointConnections/myConnection",
-                      "name": "myConnection",
-                      "type": "Microsoft.HealthcareApis/services/privateEndpointConnections",
-                      "properties": {
-                        "privateEndpoint": {
-                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/privateEndpoints/peexample01"
-                        },
-                        "privateLinkServiceConnectionState": {
-                          "status": "Approved",
-                          "description": "Auto-Approved",
-                          "actionsRequired": "None"
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -2905,36 +2295,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "PrivateEndpointConnection_GetConnection": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "rgname",
-              "resourceName": "service1",
-              "privateEndpointConnectionName": "myConnection"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1/privateEndpointConnections/myConnection",
-                  "name": "myConnection",
-                  "type": "Microsoft.HealthcareApis/services/privateEndpointConnections",
-                  "properties": {
-                    "privateEndpoint": {
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/privateEndpoints/peexample01"
-                    },
-                    "privateLinkServiceConnectionState": {
-                      "status": "Approved",
-                      "description": "Auto-Approved",
-                      "actionsRequired": "None"
-                    }
-                  }
                 }
               }
             }
@@ -2998,46 +2358,7 @@
             }
           }
         },
-        "x-ms-long-running-operation": true,
-        "x-ms-examples": {
-          "PrivateEndpointConnection_CreateOrUpdate": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "rgname",
-              "resourceName": "service1",
-              "privateEndpointConnectionName": "myConnection",
-              "properties": {
-                "properties": {
-                  "privateLinkServiceConnectionState": {
-                    "status": "Approved",
-                    "description": "Auto-Approved"
-                  }
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1/privateEndpointConnections/myConnection",
-                  "name": "myConnection",
-                  "type": "Microsoft.HealthcareApis/services/privateEndpointConnections",
-                  "properties": {
-                    "provisioningState": "Succeeded",
-                    "privateEndpoint": {
-                      "id": "/subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/peexample01"
-                    },
-                    "privateLinkServiceConnectionState": {
-                      "status": "Approved",
-                      "description": "Auto-Approved",
-                      "actionsRequired": "None"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "tags": [
@@ -3083,23 +2404,7 @@
             }
           }
         },
-        "x-ms-long-running-operation": true,
-        "x-ms-examples": {
-          "PrivateEndpointConnections_Delete": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "rgname",
-              "resourceName": "service1",
-              "privateEndpointConnectionName": "myConnection"
-            },
-            "responses": {
-              "200": {},
-              "202": {},
-              "204": {}
-            }
-          }
-        }
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/services/{resourceName}/privateLinkResources": {
@@ -3140,38 +2445,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "PrivateLinkResources_ListGroupIds": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "rgname",
-              "resourceName": "service1"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1/privateLinkResources/fhir",
-                      "name": "fhir",
-                      "type": "Microsoft.HealthcareApis/services/privateLinkResources",
-                      "properties": {
-                        "groupId": "fhir",
-                        "requiredMembers": [
-                          "fhir"
-                        ],
-                        "requiredZoneNames": [
-                          "privatelink.azurehealthcareapis.com"
-                        ]
-                      }
-                    }
-                  ]
                 }
               }
             }
@@ -3230,35 +2503,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "PrivateLinkResources_Get": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "rgname",
-              "resourceName": "service1",
-              "groupName": "fhir"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service1/privateLinkResources/fhir",
-                  "name": "fhir",
-                  "type": "Microsoft.HealthcareApis/services/privateLinkResources",
-                  "properties": {
-                    "groupId": "fhir",
-                    "requiredMembers": [
-                      "fhir"
-                    ],
-                    "requiredZoneNames": [
-                      "privatelink.azurehealthcareapis.com"
-                    ]
-                  }
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -3301,32 +2545,6 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
-        },
-        "x-ms-examples": {
-          "Get workspaces by subscription": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "nextLink": "string",
-                  "value": [
-                    {
-                      "name": "workspace1",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1",
-                      "type": "Microsoft.HealthcareApis/workspaces",
-                      "location": "eastus",
-                      "properties": {
-                        "provisioningState": "Creating"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -3372,33 +2590,6 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
-        },
-        "x-ms-examples": {
-          "Get workspaces by resource group": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "nextLink": "string",
-                  "value": [
-                    {
-                      "name": "workspace1",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1",
-                      "type": "Microsoft.HealthcareApis/workspaces",
-                      "location": "eastus",
-                      "properties": {
-                        "provisioningState": "Creating"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -3440,29 +2631,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Get workspace": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "workspace1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1",
-                  "type": "Microsoft.HealthcareApis/workspaces",
-                  "location": "westus",
-                  "properties": {
-                    "provisioningState": "Creating"
-                  }
                 }
               }
             }
@@ -3543,55 +2711,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Create or update a workspace": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "api-version": "2021-11-01",
-              "workspace": {
-                "location": "westus",
-                "properties": {}
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "workspace1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1",
-                  "type": "Microsoft.HealthcareApis/workspaces",
-                  "location": "westus",
-                  "properties": {
-                    "provisioningState": "Succeeded"
-                  }
-                }
-              },
-              "201": {
-                "body": {
-                  "name": "workspace1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1",
-                  "type": "Microsoft.HealthcareApis/workspaces",
-                  "location": "westus",
-                  "properties": {
-                    "provisioningState": "Creating"
-                  }
-                }
-              },
-              "202": {
-                "body": {
-                  "name": "workspace1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1",
-                  "type": "Microsoft.HealthcareApis/workspaces",
-                  "location": "westus",
-                  "properties": {
-                    "provisioningState": "Accepted"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "patch": {
@@ -3658,54 +2777,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Update a workspace": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "api-version": "2021-11-01",
-              "workspacePatchResource": {
-                "tags": {
-                  "tagKey": "tagValue"
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "workspace1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1",
-                  "type": "Microsoft.HealthcareApis/workspaces",
-                  "location": "westus",
-                  "tags": {
-                    "tagKey": "tagValue"
-                  },
-                  "properties": {
-                    "provisioningState": "Succeeded"
-                  }
-                }
-              },
-              "202": {
-                "headers": {
-                  "Azure-AsyncOperation": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareApis/locations/westus/operationresults/f7eb8g4f1ncj3jgk6bg8jlqf8?api-version=2021-11-01"
-                },
-                "body": {
-                  "name": "workspace1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1",
-                  "type": "Microsoft.HealthcareApis/workspaces",
-                  "location": "westus",
-                  "tags": {
-                    "tagKey": "tagValue"
-                  },
-                  "properties": {
-                    "provisioningState": "Accepted"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "delete": {
@@ -3747,21 +2818,6 @@
                   "$ref": "healthcare-apis.json#/components/schemas/Error"
                 }
               }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Delete a workspace": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {},
-              "202": {},
-              "204": {}
             }
           }
         }
@@ -3812,57 +2868,6 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
-        },
-        "x-ms-examples": {
-          "List dicomservices": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "nextLink": "string",
-                  "value": [
-                    {
-                      "name": "blue",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue",
-                      "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-                      "properties": {
-                        "authenticationConfiguration": {
-                          "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                          "audiences": [
-                            "https://azurehealthcareapis.com/",
-                            "https://azurehealthcareapis.com"
-                          ]
-                        },
-                        "provisioningState": "Succeeded",
-                        "serviceUrl": "https://workspace1-blue.dicom.azurehealthcareapis.com"
-                      }
-                    },
-                    {
-                      "name": "red",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/red",
-                      "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-                      "properties": {
-                        "authenticationConfiguration": {
-                          "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                          "audiences": [
-                            "https://azurehealthcareapis.com/",
-                            "https://azurehealthcareapis.com"
-                          ]
-                        },
-                        "provisioningState": "Succeeded",
-                        "serviceUrl": "https://workspace1-red.dicom.azurehealthcareapis.com"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -3907,37 +2912,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Get a dicomservice": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "dicomServiceName": "blue",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue",
-                  "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-                  "properties": {
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audiences": [
-                        "https://azurehealthcareapis.com/",
-                        "https://azurehealthcareapis.com"
-                      ]
-                    },
-                    "provisioningState": "Succeeded",
-                    "serviceUrl": "https://workspace1-blue.dicom.azurehealthcareapis.com"
-                  }
                 }
               }
             }
@@ -4021,80 +2995,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Create or update a Dicom Service": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "dicomServiceName": "blue",
-              "api-version": "2021-11-01",
-              "dicomservice": {
-                "location": "westus",
-                "properties": {}
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue",
-                  "location": "westus",
-                  "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-                  "properties": {
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audiences": [
-                        "https://azurehealthcareapis.com/",
-                        "https://azurehealthcareapis.com"
-                      ]
-                    },
-                    "provisioningState": "Succeeded",
-                    "serviceUrl": null
-                  }
-                }
-              },
-              "201": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue",
-                  "location": "westus",
-                  "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-                  "properties": {
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audiences": [
-                        "https://azurehealthcareapis.com/",
-                        "https://azurehealthcareapis.com"
-                      ]
-                    },
-                    "provisioningState": "Creating",
-                    "serviceUrl": null
-                  }
-                }
-              },
-              "202": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue",
-                  "location": "westus",
-                  "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-                  "properties": {
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audiences": [
-                        "https://azurehealthcareapis.com/",
-                        "https://azurehealthcareapis.com"
-                      ]
-                    },
-                    "provisioningState": "Accepted",
-                    "serviceUrl": null
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "patch": {
@@ -4164,69 +3064,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Update a dicomservice": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "dicomServiceName": "blue",
-              "api-version": "2021-11-01",
-              "dicomservicePatchResource": {
-                "tags": {
-                  "tagKey": "tagValue"
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue",
-                  "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-                  "tags": {
-                    "tagKey": "tagValue"
-                  },
-                  "properties": {
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audiences": [
-                        "https://azurehealthcareapis.com/",
-                        "https://azurehealthcareapis.com"
-                      ]
-                    },
-                    "provisioningState": "Succeeded",
-                    "serviceUrl": "https://workspace1-blue.dicom.azurehealthcareapis.com"
-                  }
-                }
-              },
-              "202": {
-                "headers": {
-                  "Azure-AsyncOperation": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareApis/locations/westus/operationresults/f7eb8g4f1ncj3jgk6bg8jlqf8?api-version=2021-11-01"
-                },
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue",
-                  "type": "Microsoft.HealthcareApis/workspaces/dicomservices",
-                  "tags": {
-                    "tagKey": "tagValue"
-                  },
-                  "properties": {
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audiences": [
-                        "https://azurehealthcareapis.com/",
-                        "https://azurehealthcareapis.com"
-                      ]
-                    },
-                    "provisioningState": "Succeeded",
-                    "serviceUrl": "https://workspace1-blue.dicom.azurehealthcareapis.com"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "delete": {
@@ -4271,22 +3108,6 @@
                   "$ref": "healthcare-apis.json#/components/schemas/Error"
                 }
               }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Delete a dicomservice": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "dicomServiceName": "blue",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {},
-              "202": {},
-              "204": {}
             }
           }
         }
@@ -4337,129 +3158,6 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
-        },
-        "x-ms-examples": {
-          "List iotconnectors": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "nextLink": "string",
-                  "value": [
-                    {
-                      "name": "blue",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue",
-                      "type": "Microsoft.HealthcareApis/workspaces/iotconnectors",
-                      "location": "westus",
-                      "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                      "tags": {
-                        "additionalProp1": "string",
-                        "additionalProp2": "string",
-                        "additionalProp3": "string"
-                      },
-                      "identity": {
-                        "type": "SystemAssigned"
-                      },
-                      "properties": {
-                        "provisioningState": "Creating",
-                        "ingestionEndpointConfiguration": {
-                          "eventHubName": "MyEventHubName",
-                          "consumerGroup": "ConsumerGroupA",
-                          "fullyQualifiedEventHubNamespace": "myeventhub.servicesbus.windows.net"
-                        },
-                        "deviceMapping": {
-                          "content": {
-                            "templateType": "CollectionContent",
-                            "template": [
-                              {
-                                "templateType": "JsonPathContent",
-                                "template": {
-                                  "typeName": "heartrate",
-                                  "typeMatchExpression": "$..[?(@heartrate)]",
-                                  "deviceIdExpression": "$.deviceid",
-                                  "timestampExpression": "$.measurementdatetime",
-                                  "values": [
-                                    {
-                                      "required": "true",
-                                      "valueExpression": "$.heartrate",
-                                      "valueName": "hr"
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      "systemData": {
-                        "createdBy": "string",
-                        "createdAt": "2021-01-28T19:26:24.072Z",
-                        "lastModifiedBy": "string",
-                        "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                      }
-                    },
-                    {
-                      "name": "red",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/red",
-                      "type": "Microsoft.HealthcareApis/workspaces/iotconnectors",
-                      "location": "westus",
-                      "etag": "00000000-0000-0000-f6ac-912ca49e01d6",
-                      "tags": {
-                        "additionalProp1": "string",
-                        "additionalProp2": "string",
-                        "additionalProp3": "string"
-                      },
-                      "identity": {
-                        "type": "SystemAssigned"
-                      },
-                      "properties": {
-                        "provisioningState": "Suceeded",
-                        "ingestionEndpointConfiguration": {
-                          "eventHubName": "MyEventHubName",
-                          "consumerGroup": "ConsumerGroupA",
-                          "fullyQualifiedEventHubNamespace": "myeventhub.servicesbus.windows.net"
-                        },
-                        "deviceMapping": {
-                          "content": {
-                            "templateType": "CollectionContent",
-                            "template": [
-                              {
-                                "templateType": "JsonPathContent",
-                                "template": {
-                                  "typeName": "steps",
-                                  "typeMatchExpression": "$..[?(@steps)]",
-                                  "deviceIdExpression": "$.deviceid",
-                                  "timestampExpression": "$.measurementdatetime",
-                                  "values": [
-                                    {
-                                      "required": "true",
-                                      "valueExpression": "$.steps",
-                                      "valueName": "steps"
-                                    }
-                                  ]
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      "systemData": {
-                        "createdBy": "string",
-                        "createdAt": "2021-01-27T19:26:24.072Z",
-                        "lastModifiedBy": "string",
-                        "lastModifiedAt": "2021-01-27T19:26:24.072Z"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -4504,73 +3202,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Get an IoT Connector": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "iotConnectorName": "blue",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors",
-                  "location": "westus",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  },
-                  "identity": {
-                    "type": "SystemAssigned"
-                  },
-                  "properties": {
-                    "provisioningState": "Creating",
-                    "ingestionEndpointConfiguration": {
-                      "eventHubName": "MyEventHubName",
-                      "consumerGroup": "ConsumerGroupA",
-                      "fullyQualifiedEventHubNamespace": "myeventhub.servicesbus.windows.net"
-                    },
-                    "deviceMapping": {
-                      "content": {
-                        "templateType": "CollectionContent",
-                        "template": [
-                          {
-                            "templateType": "JsonPathContent",
-                            "template": {
-                              "typeName": "heartrate",
-                              "typeMatchExpression": "$..[?(@heartrate)]",
-                              "deviceIdExpression": "$.deviceid",
-                              "timestampExpression": "$.measurementdatetime",
-                              "values": [
-                                {
-                                  "required": "true",
-                                  "valueExpression": "$.heartrate",
-                                  "valueName": "hr"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
                 }
               }
             }
@@ -4654,222 +3285,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Create an IoT Connector": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "iotConnectorName": "blue",
-              "api-version": "2021-11-01",
-              "iotConnector": {
-                "location": "westus",
-                "tags": {
-                  "additionalProp1": "string",
-                  "additionalProp2": "string",
-                  "additionalProp3": "string"
-                },
-                "identity": {
-                  "type": "SystemAssigned"
-                },
-                "properties": {
-                  "ingestionEndpointConfiguration": {
-                    "eventHubName": "MyEventHubName",
-                    "consumerGroup": "ConsumerGroupA",
-                    "fullyQualifiedEventHubNamespace": "myeventhub.servicesbus.windows.net"
-                  },
-                  "deviceMapping": {
-                    "content": {
-                      "templateType": "CollectionContent",
-                      "template": [
-                        {
-                          "templateType": "JsonPathContent",
-                          "template": {
-                            "typeName": "heartrate",
-                            "typeMatchExpression": "$..[?(@heartrate)]",
-                            "deviceIdExpression": "$.deviceid",
-                            "timestampExpression": "$.measurementdatetime",
-                            "values": [
-                              {
-                                "required": "true",
-                                "valueExpression": "$.heartrate",
-                                "valueName": "hr"
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors",
-                  "location": "westus",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  },
-                  "identity": {
-                    "type": "SystemAssigned"
-                  },
-                  "properties": {
-                    "provisioningState": "Succeeded",
-                    "ingestionEndpointConfiguration": {
-                      "eventHubName": "MyEventHubName",
-                      "consumerGroup": "ConsumerGroupA",
-                      "fullyQualifiedEventHubNamespace": "myeventhub.servicesbus.windows.net"
-                    },
-                    "deviceMapping": {
-                      "content": {
-                        "templateType": "CollectionContent",
-                        "template": [
-                          {
-                            "templateType": "JsonPathContent",
-                            "template": {
-                              "typeName": "heartrate",
-                              "typeMatchExpression": "$..[?(@heartrate)]",
-                              "deviceIdExpression": "$.deviceid",
-                              "timestampExpression": "$.measurementdatetime",
-                              "values": [
-                                {
-                                  "required": "true",
-                                  "valueExpression": "$.heartrate",
-                                  "valueName": "hr"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
-                }
-              },
-              "201": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors",
-                  "location": "westus",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  },
-                  "identity": {
-                    "type": "SystemAssigned"
-                  },
-                  "properties": {
-                    "provisioningState": "Creating",
-                    "ingestionEndpointConfiguration": {
-                      "eventHubName": "MyEventHubName",
-                      "consumerGroup": "ConsumerGroupA",
-                      "fullyQualifiedEventHubNamespace": "myeventhub.servicesbus.windows.net"
-                    },
-                    "deviceMapping": {
-                      "content": {
-                        "templateType": "CollectionContent",
-                        "template": [
-                          {
-                            "templateType": "JsonPathContent",
-                            "template": {
-                              "typeName": "heartrate",
-                              "typeMatchExpression": "$..[?(@heartrate)]",
-                              "deviceIdExpression": "$.deviceid",
-                              "timestampExpression": "$.measurementdatetime",
-                              "values": [
-                                {
-                                  "required": "true",
-                                  "valueExpression": "$.heartrate",
-                                  "valueName": "hr"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
-                }
-              },
-              "202": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors",
-                  "location": "westus",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  },
-                  "identity": {
-                    "type": "SystemAssigned"
-                  },
-                  "properties": {
-                    "provisioningState": "Accepted",
-                    "ingestionEndpointConfiguration": {
-                      "eventHubName": "MyEventHubName",
-                      "consumerGroup": "ConsumerGroupA",
-                      "fullyQualifiedEventHubNamespace": "myeventhub.servicesbus.windows.net"
-                    },
-                    "deviceMapping": {
-                      "content": {
-                        "templateType": "CollectionContent",
-                        "template": [
-                          {
-                            "templateType": "JsonPathContent",
-                            "template": {
-                              "typeName": "heartrate",
-                              "typeMatchExpression": "$..[?(@heartrate)]",
-                              "deviceIdExpression": "$.deviceid",
-                              "timestampExpression": "$.measurementdatetime",
-                              "values": [
-                                {
-                                  "required": "true",
-                                  "valueExpression": "$.heartrate",
-                                  "valueName": "hr"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "patch": {
@@ -4939,140 +3354,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Patch an IoT Connector": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "iotConnectorName": "blue",
-              "api-version": "2021-11-01",
-              "iotConnectorPatchResource": {
-                "tags": {
-                  "additionalProp1": "string",
-                  "additionalProp2": "string",
-                  "additionalProp3": "string"
-                },
-                "identity": {
-                  "type": "SystemAssigned"
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors",
-                  "location": "westus",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  },
-                  "identity": {
-                    "type": "SystemAssigned"
-                  },
-                  "properties": {
-                    "provisioningState": "Succeeded",
-                    "ingestionEndpointConfiguration": {
-                      "eventHubName": "MyEventHubName",
-                      "consumerGroup": "ConsumerGroupA",
-                      "fullyQualifiedEventHubNamespace": "myeventhub.servicesbus.windows.net"
-                    },
-                    "deviceMapping": {
-                      "content": {
-                        "templateType": "CollectionContent",
-                        "template": [
-                          {
-                            "templateType": "JsonPathContent",
-                            "template": {
-                              "typeName": "heartrate",
-                              "typeMatchExpression": "$..[?(@heartrate)]",
-                              "deviceIdExpression": "$.deviceid",
-                              "timestampExpression": "$.measurementdatetime",
-                              "values": [
-                                {
-                                  "required": "true",
-                                  "valueExpression": "$.heartrate",
-                                  "valueName": "hr"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
-                }
-              },
-              "202": {
-                "headers": {
-                  "Azure-AsyncOperation": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareApis/locations/westus/operationresults/f7eb8g4f1ncj3jgk6bg8jlqf8?api-version=2021-11-01"
-                },
-                "body": {
-                  "name": "blue",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors",
-                  "location": "westus",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  },
-                  "identity": {
-                    "type": "SystemAssigned"
-                  },
-                  "properties": {
-                    "provisioningState": "Accepted",
-                    "ingestionEndpointConfiguration": {
-                      "eventHubName": "MyEventHubName",
-                      "consumerGroup": "ConsumerGroupA",
-                      "fullyQualifiedEventHubNamespace": "myeventhub.servicesbus.windows.net"
-                    },
-                    "deviceMapping": {
-                      "content": {
-                        "templateType": "CollectionContent",
-                        "template": [
-                          {
-                            "templateType": "JsonPathContent",
-                            "template": {
-                              "typeName": "heartrate",
-                              "typeMatchExpression": "$..[?(@heartrate)]",
-                              "deviceIdExpression": "$.deviceid",
-                              "timestampExpression": "$.measurementdatetime",
-                              "values": [
-                                {
-                                  "required": "true",
-                                  "valueExpression": "$.heartrate",
-                                  "valueName": "hr"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "delete": {
@@ -5117,22 +3398,6 @@
                   "$ref": "healthcare-apis.json#/components/schemas/Error"
                 }
               }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Delete an IoT Connector": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "iotConnectorName": "blue",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {},
-              "202": {},
-              "204": {}
             }
           }
         }
@@ -5186,116 +3451,6 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
-        },
-        "x-ms-examples": {
-          "List IoT Connectors": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "iotConnectorName": "blue",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "nextLink": "string",
-                  "value": [
-                    {
-                      "name": "dest1",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue/fhirdestinations/dest1",
-                      "type": "Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations",
-                      "location": "westus",
-                      "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                      "properties": {
-                        "provisioningState": "Succeeded",
-                        "resourceIdentityResolutionType": "Create",
-                        "fhirServiceResourceId": "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
-                        "fhirMapping": {
-                          "content": {
-                            "templateType": "CollectionFhirTemplate",
-                            "template": [
-                              {
-                                "templateType": "CodeValueFhir",
-                                "template": {
-                                  "codes": [
-                                    {
-                                      "code": "8867-4",
-                                      "system": "http://loinc.org",
-                                      "display": "Heart rate"
-                                    }
-                                  ],
-                                  "periodInterval": 60,
-                                  "typeName": "heartrate",
-                                  "value": {
-                                    "defaultPeriod": 5000,
-                                    "unit": "count/min",
-                                    "valueName": "hr",
-                                    "valueType": "SampledData"
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      "systemData": {
-                        "createdBy": "string",
-                        "createdAt": "2021-01-28T19:26:24.072Z",
-                        "lastModifiedBy": "string",
-                        "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                      }
-                    },
-                    {
-                      "name": "dest2",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue/fhirdestinations/dest2",
-                      "type": "Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations",
-                      "location": "westus",
-                      "etag": "00000000-0000-0000-f6ac-912ca49e01d6",
-                      "properties": {
-                        "provisioningState": "Suceeded",
-                        "resourceIdentityResolutionType": "Lookup",
-                        "fhirServiceResourceId": "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
-                        "fhirMapping": {
-                          "content": {
-                            "templateType": "CollectionFhirTemplate",
-                            "template": [
-                              {
-                                "templateType": "CodeValueFhir",
-                                "template": {
-                                  "codes": [
-                                    {
-                                      "code": "8867-4",
-                                      "system": "http://loinc.org",
-                                      "display": "Heart rate"
-                                    }
-                                  ],
-                                  "periodInterval": 60,
-                                  "typeName": "heartrate",
-                                  "value": {
-                                    "defaultPeriod": 5000,
-                                    "unit": "count/min",
-                                    "valueName": "hr",
-                                    "valueType": "SampledData"
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      "systemData": {
-                        "createdBy": "string",
-                        "createdAt": "2021-01-27T19:26:24.072Z",
-                        "lastModifiedBy": "string",
-                        "lastModifiedAt": "2021-01-27T19:26:24.072Z"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -5343,67 +3498,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Get an IoT Connector destination": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "iotConnectorName": "blue",
-              "fhirDestinationName": "dest1",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "dest1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue/fhirdestinations/dest1",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations",
-                  "location": "westus",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "properties": {
-                    "provisioningState": "Suceeded",
-                    "resourceIdentityResolutionType": "Create",
-                    "fhirServiceResourceId": "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
-                    "fhirMapping": {
-                      "content": {
-                        "templateType": "CollectionFhirTemplate",
-                        "template": [
-                          {
-                            "templateType": "CodeValueFhir",
-                            "template": {
-                              "codes": [
-                                {
-                                  "code": "8867-4",
-                                  "system": "http://loinc.org",
-                                  "display": "Heart rate"
-                                }
-                              ],
-                              "periodInterval": 60,
-                              "typeName": "heartrate",
-                              "value": {
-                                "defaultPeriod": 5000,
-                                "unit": "count/min",
-                                "valueName": "hr",
-                                "valueType": "SampledData"
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
                 }
               }
             }
@@ -5490,195 +3584,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Create or update an Iot Connector FHIR destination": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "iotConnectorName": "blue",
-              "fhirDestinationName": "dest1",
-              "api-version": "2021-11-01",
-              "iotFhirDestination": {
-                "location": "westus",
-                "properties": {
-                  "resourceIdentityResolutionType": "Create",
-                  "fhirServiceResourceId": "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
-                  "fhirMapping": {
-                    "content": {
-                      "templateType": "CollectionFhirTemplate",
-                      "template": [
-                        {
-                          "templateType": "CodeValueFhir",
-                          "template": {
-                            "codes": [
-                              {
-                                "code": "8867-4",
-                                "system": "http://loinc.org",
-                                "display": "Heart rate"
-                              }
-                            ],
-                            "periodInterval": 60,
-                            "typeName": "heartrate",
-                            "value": {
-                              "defaultPeriod": 5000,
-                              "unit": "count/min",
-                              "valueName": "hr",
-                              "valueType": "SampledData"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "dest1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue/fhirdestinations/dest1",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations",
-                  "location": "West US 2",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "properties": {
-                    "provisioningState": "Succeeded",
-                    "resourceIdentityResolutionType": "Create",
-                    "fhirServiceResourceId": "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
-                    "fhirMapping": {
-                      "content": {
-                        "templateType": "CollectionFhirTemplate",
-                        "template": [
-                          {
-                            "templateType": "CodeValueFhir",
-                            "template": {
-                              "codes": [
-                                {
-                                  "code": "8867-4",
-                                  "system": "http://loinc.org",
-                                  "display": "Heart rate"
-                                }
-                              ],
-                              "periodInterval": 60,
-                              "typeName": "heartrate",
-                              "value": {
-                                "defaultPeriod": 5000,
-                                "unit": "count/min",
-                                "valueName": "hr",
-                                "valueType": "SampledData"
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
-                }
-              },
-              "201": {
-                "body": {
-                  "name": "dest1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue/fhirdestinations/dest1",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations",
-                  "location": "West US 2",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "properties": {
-                    "provisioningState": "Creating",
-                    "resourceIdentityResolutionType": "Create",
-                    "fhirServiceResourceId": "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
-                    "fhirMapping": {
-                      "content": {
-                        "templateType": "CollectionFhirTemplate",
-                        "template": [
-                          {
-                            "templateType": "CodeValueFhir",
-                            "template": {
-                              "codes": [
-                                {
-                                  "code": "8867-4",
-                                  "system": "http://loinc.org",
-                                  "display": "Heart rate"
-                                }
-                              ],
-                              "periodInterval": 60,
-                              "typeName": "heartrate",
-                              "value": {
-                                "defaultPeriod": 5000,
-                                "unit": "count/min",
-                                "valueName": "hr",
-                                "valueType": "SampledData"
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
-                }
-              },
-              "202": {
-                "body": {
-                  "name": "dest1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue/fhirdestinations/dest1",
-                  "type": "Microsoft.HealthcareApis/workspaces/iotconnectors/fhirdestinations",
-                  "location": "West US 2",
-                  "etag": "00000000-0000-0000-f5ac-912ca49e01d6",
-                  "properties": {
-                    "provisioningState": "Accepted",
-                    "resourceIdentityResolutionType": "Create",
-                    "fhirServiceResourceId": "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
-                    "fhirMapping": {
-                      "content": {
-                        "templateType": "CollectionFhirTemplate",
-                        "template": [
-                          {
-                            "templateType": "CodeValueFhir",
-                            "template": {
-                              "codes": [
-                                {
-                                  "code": "8867-4",
-                                  "system": "http://loinc.org",
-                                  "display": "Heart rate"
-                                }
-                              ],
-                              "periodInterval": 60,
-                              "typeName": "heartrate",
-                              "value": {
-                                "defaultPeriod": 5000,
-                                "unit": "count/min",
-                                "valueName": "hr",
-                                "valueType": "SampledData"
-                              }
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "systemData": {
-                    "createdBy": "string",
-                    "createdAt": "2021-01-28T19:26:24.072Z",
-                    "lastModifiedBy": "string",
-                    "lastModifiedAt": "2021-01-28T19:26:24.072Z"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "delete": {
@@ -5726,23 +3631,6 @@
                   "$ref": "healthcare-apis.json#/components/schemas/Error"
                 }
               }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Delete an IoT Connector destination": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "iotConnectorName": "blue",
-              "fhirDestinationName": "dest1",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {},
-              "202": {},
-              "204": {}
             }
           }
         }
@@ -5793,41 +3681,6 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
-        },
-        "x-ms-examples": {
-          "List fhirservices": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "nextLink": "string",
-                  "value": [
-                    {
-                      "name": "fhirservice1",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservice1",
-                      "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
-                      "properties": {
-                        "provisioningState": "Creating"
-                      }
-                    },
-                    {
-                      "name": "fhirservice2",
-                      "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservice2",
-                      "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
-                      "properties": {
-                        "provisioningState": "Creating"
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -5872,29 +3725,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Get a Fhir Service": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "fhirServiceName": "fhirservices1",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "fhirservices1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservices1",
-                  "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
-                  "properties": {
-                    "provisioningState": "Creating"
-                  }
                 }
               }
             }
@@ -5978,231 +3808,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Create or update a Fhir Service": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "fhirServiceName": "fhirservice1",
-              "api-version": "2021-11-01",
-              "fhirservice": {
-                "location": "westus",
-                "tags": {
-                  "additionalProp1": "string",
-                  "additionalProp2": "string",
-                  "additionalProp3": "string"
-                },
-                "kind": "fhir-R4",
-                "identity": {
-                  "type": "SystemAssigned"
-                },
-                "properties": {
-                  "accessPolicies": [
-                    {
-                      "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                    },
-                    {
-                      "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                    }
-                  ],
-                  "acrConfiguration": {
-                    "loginServers": [
-                      "test1.azurecr.io"
-                    ]
-                  },
-                  "authenticationConfiguration": {
-                    "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                    "audience": "https://azurehealthcareapis.com",
-                    "smartProxyEnabled": true
-                  },
-                  "corsConfiguration": {
-                    "origins": [
-                      "*"
-                    ],
-                    "headers": [
-                      "*"
-                    ],
-                    "methods": [
-                      "DELETE",
-                      "GET",
-                      "OPTIONS",
-                      "PATCH",
-                      "POST",
-                      "PUT"
-                    ],
-                    "maxAge": 1440,
-                    "allowCredentials": false
-                  },
-                  "exportConfiguration": {
-                    "storageAccountName": "existingStorageAccount"
-                  }
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "fhirservice1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservice1",
-                  "location": "westus",
-                  "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
-                  "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  },
-                  "kind": "fhir-R4",
-                  "etag": "etagvalue",
-                  "properties": {
-                    "accessPolicies": [
-                      {
-                        "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                      },
-                      {
-                        "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                      }
-                    ],
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audience": "https://azurehealthcareapis.com",
-                      "smartProxyEnabled": true
-                    },
-                    "corsConfiguration": {
-                      "origins": [
-                        "*"
-                      ],
-                      "headers": [
-                        "*"
-                      ],
-                      "methods": [
-                        "DELETE",
-                        "GET",
-                        "OPTIONS",
-                        "PATCH",
-                        "POST",
-                        "PUT"
-                      ],
-                      "maxAge": 1440,
-                      "allowCredentials": false
-                    },
-                    "exportConfiguration": {
-                      "storageAccountName": "existingStorageAccount"
-                    },
-                    "eventState": "Disabled",
-                    "provisioningState": "Succeeded"
-                  }
-                }
-              },
-              "201": {
-                "body": {
-                  "name": "fhirservice1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservice1",
-                  "location": "westus",
-                  "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
-                  "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  },
-                  "kind": "fhir-R4",
-                  "etag": "etagvalue",
-                  "properties": {
-                    "accessPolicies": [
-                      {
-                        "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                      },
-                      {
-                        "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                      }
-                    ],
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audience": "https://azurehealthcareapis.com",
-                      "smartProxyEnabled": true
-                    },
-                    "corsConfiguration": {
-                      "origins": [
-                        "*"
-                      ],
-                      "headers": [
-                        "*"
-                      ],
-                      "methods": [
-                        "DELETE",
-                        "GET",
-                        "OPTIONS",
-                        "PATCH",
-                        "POST",
-                        "PUT"
-                      ],
-                      "maxAge": 1440,
-                      "allowCredentials": false
-                    },
-                    "exportConfiguration": {
-                      "storageAccountName": "existingStorageAccount"
-                    },
-                    "eventState": "Disabled",
-                    "provisioningState": "Creating"
-                  }
-                }
-              },
-              "202": {
-                "body": {
-                  "name": "fhirservice1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservice1",
-                  "location": "westus",
-                  "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
-                  "tags": {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  },
-                  "kind": "fhir-R4",
-                  "etag": "etagvalue",
-                  "properties": {
-                    "accessPolicies": [
-                      {
-                        "objectId": "c487e7d1-3210-41a3-8ccc-e9372b78da47"
-                      },
-                      {
-                        "objectId": "5b307da8-43d4-492b-8b66-b0294ade872f"
-                      }
-                    ],
-                    "authenticationConfiguration": {
-                      "authority": "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
-                      "audience": "https://azurehealthcareapis.com",
-                      "smartProxyEnabled": true
-                    },
-                    "corsConfiguration": {
-                      "origins": [
-                        "*"
-                      ],
-                      "headers": [
-                        "*"
-                      ],
-                      "methods": [
-                        "DELETE",
-                        "GET",
-                        "OPTIONS",
-                        "PATCH",
-                        "POST",
-                        "PUT"
-                      ],
-                      "maxAge": 1440,
-                      "allowCredentials": false
-                    },
-                    "exportConfiguration": {
-                      "storageAccountName": "existingStorageAccount"
-                    },
-                    "eventState": "Disabled",
-                    "provisioningState": "Accepted"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "patch": {
@@ -6272,53 +3877,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "Update a Fhir Service": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "fhirServiceName": "fhirservice1",
-              "api-version": "2021-11-01",
-              "fhirservicePatchResource": {
-                "tags": {
-                  "tagKey": "tagValue"
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "name": "fhirservice1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservice1",
-                  "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
-                  "tags": {
-                    "tagKey": "tagValue"
-                  },
-                  "properties": {
-                    "provisioningState": "Succeeded"
-                  }
-                }
-              },
-              "202": {
-                "headers": {
-                  "Azure-AsyncOperation": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.HealthcareApis/locations/westus/operationresults/f7eb8g4f1ncj3jgk6bg8jlqf8?api-version=2021-11-01"
-                },
-                "body": {
-                  "name": "fhirservice1",
-                  "id": "/subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservice1",
-                  "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
-                  "tags": {
-                    "tagKey": "tagValue"
-                  },
-                  "properties": {
-                    "provisioningState": "Accepted"
-                  }
-                }
-              }
-            }
-          }
         }
       },
       "delete": {
@@ -6363,22 +3921,6 @@
                   "$ref": "healthcare-apis.json#/components/schemas/Error"
                 }
               }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Delete a Fhir Service": {
-            "parameters": {
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "fhirServiceName": "fhirservice1",
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {},
-              "202": {},
-              "204": {}
             }
           }
         }
@@ -6429,39 +3971,6 @@
         },
         "x-ms-pageable": {
           "nextLinkName": null
-        },
-        "x-ms-examples": {
-          "WorkspacePrivateEndpointConnection_List": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/workspaces/workspace1/privateEndpointConnections/myConnection",
-                      "name": "myConnection",
-                      "type": "Microsoft.HealthcareApis/workspaces/privateEndpointConnections",
-                      "properties": {
-                        "privateEndpoint": {
-                          "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/privateEndpoints/peexample01"
-                        },
-                        "privateLinkServiceConnectionState": {
-                          "status": "Approved",
-                          "description": "Auto-Approved",
-                          "actionsRequired": "None"
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -6506,36 +4015,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "WorkspacePrivateEndpointConnection_GetConnection": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "privateEndpointConnectionName": "myConnection"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/workspaces/workspace1/privateEndpointConnections/myConnection",
-                  "name": "myConnection",
-                  "type": "Microsoft.HealthcareApis/workspaces/privateEndpointConnections",
-                  "properties": {
-                    "privateEndpoint": {
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/privateEndpoints/peexample01"
-                    },
-                    "privateLinkServiceConnectionState": {
-                      "status": "Approved",
-                      "description": "Auto-Approved",
-                      "actionsRequired": "None"
-                    }
-                  }
                 }
               }
             }
@@ -6599,46 +4078,7 @@
             }
           }
         },
-        "x-ms-long-running-operation": true,
-        "x-ms-examples": {
-          "WorkspacePrivateEndpointConnection_CreateOrUpdate": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "privateEndpointConnectionName": "myConnection",
-              "properties": {
-                "properties": {
-                  "privateLinkServiceConnectionState": {
-                    "status": "Approved",
-                    "description": "Auto-Approved"
-                  }
-                }
-              }
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/workspaces/workspace1/privateEndpointConnections/myConnection",
-                  "name": "myConnection",
-                  "type": "Microsoft.HealthcareApis/workspaces/privateEndpointConnections",
-                  "properties": {
-                    "provisioningState": "Succeeded",
-                    "privateEndpoint": {
-                      "id": "/subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/peexample01"
-                    },
-                    "privateLinkServiceConnectionState": {
-                      "status": "Approved",
-                      "description": "Auto-Approved",
-                      "actionsRequired": "None"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "tags": [
@@ -6684,23 +4124,7 @@
             }
           }
         },
-        "x-ms-long-running-operation": true,
-        "x-ms-examples": {
-          "WorkspacePrivateEndpointConnections_Delete": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "privateEndpointConnectionName": "myConnection"
-            },
-            "responses": {
-              "200": {},
-              "202": {},
-              "204": {}
-            }
-          }
-        }
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/privateLinkResources": {
@@ -6748,40 +4172,6 @@
         },
         "x-ms-pageable": {
           "nextLinkName": null
-        },
-        "x-ms-examples": {
-          "WorkspacePrivateLinkResources_ListGroupIds": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/workspaces/workspace1/privateLinkResources/healthcareworkspace",
-                      "name": "healthcareworkspace",
-                      "type": "Microsoft.HealthcareApis/workspaces/privateLinkResources",
-                      "properties": {
-                        "groupId": "healthcareworkspace",
-                        "requiredMembers": [
-                          "fhirservices",
-                          "dicomservices"
-                        ],
-                        "requiredZoneNames": [
-                          "privatelink.fhir.azurehealthcareapis.com",
-                          "privatelink.dicom.azurehealthcareapis.com"
-                        ]
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -6836,37 +4226,6 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "WorkspacePrivateLinkResources_Get": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "resourceGroupName": "testRG",
-              "workspaceName": "workspace1",
-              "groupName": "healthcareworkspace"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/workspaces/workspace1/privateLinkResources/fhir",
-                  "name": "fhir",
-                  "type": "Microsoft.HealthcareApis/workspaces/privateLinkResources",
-                  "properties": {
-                    "groupId": "healthcareworkspace",
-                    "requiredMembers": [
-                      "fhirservices",
-                      "dicomservices"
-                    ],
-                    "requiredZoneNames": [
-                      "privatelink.fhir.azurehealthcareapis.com",
-                      "privatelink.dicom.azurehealthcareapis.com"
-                    ]
-                  }
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -6902,121 +4261,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "List operations": {
-            "parameters": {
-              "api-version": "2021-11-01"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "value": [
-                    {
-                      "name": "Microsoft.HealthcareApis/services/read",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/services/write",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/services/delete",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/locations/operationresults/read",
-                      "display": {
-                        "provider": "Microsoft.HealthcareApis",
-                        "resource": "operationresults",
-                        "operation": "read",
-                        "description": "Get the status of an asynchronous operation"
-                      },
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/read",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/write",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/delete",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/dicomservices/read",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/dicomservices/write",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/dicomservices/delete",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/iotconnectors/read",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/iotconnectors/write",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/iotconnectors/delete",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/fhirservices/read",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/fhirservices/write",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/workspaces/fhirservices/delete",
-                      "display": {},
-                      "origin": "user,system"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/checkNameAvailability/post",
-                      "display": {},
-                      "origin": "user"
-                    },
-                    {
-                      "name": "Microsoft.HealthcareApis/Operations/read",
-                      "display": {
-                        "provider": "Microsoft.HealthcareApis",
-                        "resource": "operations",
-                        "operation": "read",
-                        "description": "Get the list of operations supported by this Resource Provider."
-                      },
-                      "origin": "user,system"
-                    }
-                  ]
                 }
               }
             }
@@ -7062,28 +4306,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "healthcare-apis.json#/components/schemas/ErrorDetails"
-                }
-              }
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Get operation result": {
-            "parameters": {
-              "api-version": "2021-11-01",
-              "subscriptionId": "subid",
-              "locationName": "westus",
-              "operationResultId": "exampleid"
-            },
-            "responses": {
-              "200": {
-                "body": {
-                  "id": "/subscriptions/subid/providers/Microsoft.HealthcareApis/locations/westus/operationresults/exampleid",
-                  "name": "servicename",
-                  "status": "Requested",
-                  "startTime": "2019-01-21T06:03:30.2716301Z",
-                  "endTime": "2019-01-21T06:04:12.3413202Z",
-                  "properties": {}
                 }
               }
             }
