@@ -626,6 +626,16 @@
       "OperationResultsDescription": {
         "description": "The properties indicating the operation result of an operation on a service.",
         "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "Workspace": "#/components/schemas/WorkspaceOperationResult",
+            "DicomService": "#/components/schemas/DicomServiceOperationResult",
+            "IotConnector": "#/components/schemas/IotConnectorOperationResult",
+            "IotFhirDestination": "#/components/schemas/IotFhirDestinationOperationResult",
+            "FhirService": "#/components/schemas/FhirServiceOperationResult"
+          }
+        },
         "properties": {
           "id": {
             "description": "The ID of the operation returned.",
@@ -662,9 +672,76 @@
             "description": "The time that the operation finished.",
             "type": "string"
           },
+          "kind":{
+            "description": "kind of operation",
+            "type": "string",
+            "enum": [
+              "Workspace",
+              "DicomService",
+              "IotConnector",
+              "IotFhirDestination",
+              "FhirService"
+            ],
+            "x-ms-enum": {
+              "name": "kind",
+              "modelAsString": true,
+              "values": [
+                { "value": "Workspace", "description": "Operation on a workspace" },
+                { "value": "DicomService", "description": "Operation on a DicomService"},
+                { "value": "IotConnector", "description": "Operation on a IotConnector"},
+                { "value": "IotFhirDestination", "description": "Operation on a IotFhirDestination"},
+                { "value": "FhirService", "description": "Operation on a FhirService"}
+              ]
+            }
+          },
           "properties": {
             "description": "Additional properties of the operation result.",
             "type": "object"
+          }
+        }
+      },
+      "WorkspaceOperationResult": {
+        "type": "object",
+        "allOf": [ { "$ref": "#/components/schemas/OperationResultsDescription"}],
+        "properties": {
+          "successResponse": {
+            "$ref": "#/components/schemas/Workspace"
+          }
+        }
+      },
+      "DicomServiceOperationResult": {
+        "type": "object",
+        "allOf": [ { "$ref": "#/components/schemas/OperationResultsDescription"}],
+        "properties": {
+          "successResponse": {
+            "$ref": "#/components/schemas/DicomService"
+          }
+        }
+      },
+      "IotConnectorOperationResult": {
+        "type": "object",
+        "allOf": [ { "$ref": "#/components/schemas/OperationResultsDescription"}],
+        "properties": {
+          "successResponse": {
+            "$ref": "#/components/schemas/IotConnector"
+          }
+        }
+      },
+      "IotFhirDestinationOperationResult": {
+        "type": "object",
+        "allOf": [ { "$ref": "#/components/schemas/OperationResultsDescription"}],
+        "properties": {
+          "successResponse": {
+            "$ref": "#/components/schemas/IotFhirDestination"
+          }
+        }
+      },
+      "FhirServiceOperationResult": {
+        "type": "object",
+        "allOf": [ { "$ref": "#/components/schemas/OperationResultsDescription"}],
+        "properties": {
+          "successResponse": {
+            "$ref": "#/components/schemas/FhirService"
           }
         }
       },
