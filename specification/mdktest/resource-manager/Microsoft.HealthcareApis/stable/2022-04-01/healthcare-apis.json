@@ -2050,7 +2050,15 @@
         ],
         "responses": {
           "202": {
-            "description": "Accepted - Delete request accepted; the operation will complete asynchronously."
+            "description": "Accepted - Delete request accepted; the operation will complete asynchronously.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "204": {
             "description": "The resource does not exist."
@@ -2388,7 +2396,15 @@
             "description": "The request was successful; the request was well-formed and received properly."
           },
           "202": {
-            "description": "The request was successful; the operation will complete asynchronously."
+            "description": "The request was successful; the operation will complete asynchronously.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "204": {
             "description": "No Content - The private endpoint connection does not exist."
@@ -2693,10 +2709,11 @@
           },
           "202": {
             "description": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
-            "content": {
-              "application/json": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
                 "schema": {
-                  "$ref": "healthcare-apis.json#/components/schemas/Workspace"
+                  "type": "string"
                 }
               }
             }
@@ -2759,10 +2776,11 @@
           },
           "202": {
             "description": "Accepted - Patch request accepted and an existing resource is being updated asynchronously.",
-            "content": {
-              "application/json": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
                 "schema": {
-                  "$ref": "healthcare-apis.json#/components/schemas/Workspace"
+                  "type": "string"
                 }
               }
             }
@@ -2805,7 +2823,15 @@
             "description": "Resource deleted."
           },
           "202": {
-            "description": "Delete request accepted; the operation will complete asynchronously."
+            "description": "Delete request accepted; the operation will complete asynchronously.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "204": {
             "description": "The resource does not exist."
@@ -2977,10 +3003,11 @@
           },
           "202": {
             "description": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
-            "content": {
-              "application/json": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
                 "schema": {
-                  "$ref": "healthcare-apis.json#/components/schemas/DicomService"
+                  "type": "string"
                 }
               }
             }
@@ -3046,10 +3073,11 @@
           },
           "202": {
             "description": "Accepted - Patch request accepted and an existing resource is being updated asynchronously.",
-            "content": {
-              "application/json": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
                 "schema": {
-                  "$ref": "healthcare-apis.json#/components/schemas/DicomService"
+                  "type": "string"
                 }
               }
             }
@@ -3095,7 +3123,15 @@
             "description": "Resource deleted."
           },
           "202": {
-            "description": "Delete request accepted; the operation will complete asynchronously."
+            "description": "Delete request accepted; the operation will complete asynchronously.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "204": {
             "description": "The resource does not exist."
@@ -3267,10 +3303,11 @@
           },
           "202": {
             "description": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
-            "content": {
-              "application/json": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
                 "schema": {
-                  "$ref": "healthcare-apis.json#/components/schemas/IotConnector"
+                  "type": "string"
                 }
               }
             }
@@ -3336,10 +3373,11 @@
           },
           "202": {
             "description": "Accepted - Patch request accepted and an existing resource is being updated asynchronously.",
-            "content": {
-              "application/json": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
                 "schema": {
-                  "$ref": "healthcare-apis.json#/components/schemas/IotConnector"
+                  "type": "string"
                 }
               }
             }
@@ -3385,7 +3423,15 @@
             "description": "Resource deleted."
           },
           "202": {
-            "description": "Delete request accepted; the operation will complete asynchronously."
+            "description": "Delete request accepted; the operation will complete asynchronously.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "204": {
             "description": "The resource does not exist."
@@ -3566,10 +3612,11 @@
           },
           "202": {
             "description": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
-            "content": {
-              "application/json": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
                 "schema": {
-                  "$ref": "healthcare-apis.json#/components/schemas/IotFhirDestination"
+                  "type": "string"
                 }
               }
             }
@@ -3618,7 +3665,15 @@
             "description": "Resource deleted."
           },
           "202": {
-            "description": "Delete request accepted; the operation will complete asynchronously."
+            "description": "Delete request accepted; the operation will complete asynchronously.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "204": {
             "description": "The resource does not exist."
@@ -3790,10 +3845,11 @@
           },
           "202": {
             "description": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
-            "content": {
-              "application/json": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
                 "schema": {
-                  "$ref": "healthcare-apis.json#/components/schemas/FhirService"
+                  "type": "string"
                 }
               }
             }
@@ -3859,10 +3915,11 @@
           },
           "202": {
             "description": "Accepted - Patch request accepted and an existing resource is being updated asynchronously.",
-            "content": {
-              "application/json": {
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
                 "schema": {
-                  "$ref": "healthcare-apis.json#/components/schemas/FhirService"
+                  "type": "string"
                 }
               }
             }
@@ -3908,7 +3965,15 @@
             "description": "Resource deleted."
           },
           "202": {
-            "description": "Delete request accepted; the operation will complete asynchronously."
+            "description": "Delete request accepted; the operation will complete asynchronously.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "204": {
             "description": "The resource does not exist."
@@ -4108,7 +4173,15 @@
             "description": "The request was successful; the request was well-formed and received properly."
           },
           "202": {
-            "description": "The request was successful; the operation will complete asynchronously."
+            "description": "The request was successful; the operation will complete asynchronously.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "description": "Absolute URL to poll for operation results",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "204": {
             "description": "No Content - The private endpoint connection does not exist."
