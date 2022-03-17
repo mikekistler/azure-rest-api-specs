@@ -6,7 +6,7 @@
   ],
   "openapi": "3.0.0",
   "info": {
-    "version": "2021-11-01",
+    "version": "2022-04-01",
     "title": "HealthcareApisClient",
     "description": "Use this API to manage Microsoft HealthcareApis services in your Azure subscription."
   },
@@ -1854,6 +1854,14 @@
         "required": true,
         "schema": {
           "type": "string"
+        }      },
+      "OperationIdParameter": {
+        "name": "operationId",
+        "in": "query",
+        "description": "The operation id (name) for a long-running operation",
+        "required": true,
+        "schema": {
+          "type": "string"
         }
       }
     }
@@ -2035,6 +2043,9 @@
         "parameters": [
           {
             "$ref": "healthcare-apis.json#/components/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/components/parameters/OperationIdParameter"
           },
           {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
@@ -2403,6 +2414,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/ApiVersionParameter"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "../../../../../common-types/resource-management/v1/privatelinks.json#/parameters/PrivateEndpointConnectionName"
           }
         ],
@@ -2700,6 +2714,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
           },
           {
@@ -2794,6 +2811,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
           },
           {
@@ -2873,6 +2893,9 @@
         "parameters": [
           {
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
+          },
+          {
+            "$ref": "#/components/parameters/OperationIdParameter"
           },
           {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
@@ -3042,6 +3065,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
           },
           {
@@ -3139,6 +3165,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
           },
           {
@@ -3221,6 +3250,9 @@
         "parameters": [
           {
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
+          },
+          {
+            "$ref": "#/components/parameters/OperationIdParameter"
           },
           {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
@@ -3393,6 +3425,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
           },
           {
@@ -3490,6 +3525,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
           },
           {
@@ -3572,6 +3610,9 @@
         "parameters": [
           {
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
+          },
+          {
+            "$ref": "#/components/parameters/OperationIdParameter"
           },
           {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
@@ -3750,6 +3791,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
           },
           {
@@ -3845,6 +3889,9 @@
         "parameters": [
           {
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
+          },
+          {
+            "$ref": "#/components/parameters/OperationIdParameter"
           },
           {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
@@ -4020,6 +4067,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
           },
           {
@@ -4117,6 +4167,9 @@
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
           },
           {
+            "$ref": "#/components/parameters/OperationIdParameter"
+          },
+          {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
           },
           {
@@ -4199,6 +4252,9 @@
         "parameters": [
           {
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
+          },
+          {
+            "$ref": "#/components/parameters/OperationIdParameter"
           },
           {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
@@ -4424,6 +4480,9 @@
         "parameters": [
           {
             "$ref": "healthcare-apis.json#/components/parameters/apiVersion"
+          },
+          {
+            "$ref": "#/components/parameters/OperationIdParameter"
           },
           {
             "$ref": "healthcare-apis.json#/components/parameters/subscriptionId"
