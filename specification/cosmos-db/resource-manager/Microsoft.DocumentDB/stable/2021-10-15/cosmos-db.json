@@ -1691,8 +1691,9 @@
             "$ref": "./examples/CosmosDBSqlDatabaseMigrateToAutoscale.json"
           }
         },
-        "description": "Migrate an Azure Cosmos DB SQL database from manual throughput to autoscale",
+        "description": "Migrate an Azure Cosmos DB SQL database from manual throughput to autoscale - improved LRO",
         "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {"final-state-via": "azure-async-operation"},
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v1/types.json#/parameters/SubscriptionIdParameter"
@@ -1717,7 +1718,7 @@
           "200": {
             "description": "The SQL database migrate operation was completed successfully.",
             "schema": {
-              "$ref": "#/definitions/ThroughputSettingsGetResults"
+              "$ref": "#/definitions/SqlContainerListResult"
             }
           },
           "default": {
