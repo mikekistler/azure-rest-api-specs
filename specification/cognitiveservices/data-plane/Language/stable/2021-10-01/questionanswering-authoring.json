@@ -248,7 +248,7 @@
     },
     "/query-knowledgebases/projects/{projectName}/:export": {
       "post": {
-        "summary": "Export project metadata and assets.",
+        "summary": "Export project metadata and assets. Improved!",
         "operationId": "QuestionAnsweringProjects_Export",
         "parameters": [
           {
@@ -297,7 +297,8 @@
             "$ref": "./examples/questionanswering/authoring/SuccessfulProjectSubmitExportJob.json"
           }
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {"final-state-via": "original-uri"}
       }
     },
     "/query-knowledgebases/projects/{projectName}/export/jobs/{jobId}": {
