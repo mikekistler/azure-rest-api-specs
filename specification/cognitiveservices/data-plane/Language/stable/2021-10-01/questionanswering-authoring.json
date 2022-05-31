@@ -246,10 +246,53 @@
         }
       }
     },
-    "/query-knowledgebases/projects/{projectName}/:export": {
+    "/query-knowledgebases/projects/{projectName}/operationStatuses/{operationId}": {
+      "get": {
+        "description": "Returns the status of a long-running operation",
+        "operationId": "Operations_GetStatus",
+        "parameters": [
+          {
+            "$ref": "common.json#/parameters/ProjectNamePathParameter"
+          },
+          {
+            "name": "operationId",
+            "in": "path",
+            "type": "string",
+            "description": "Identifier of the operation",
+            "required": true
+          },
+          {
+            "$ref": "common.json#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation status",
+            "headers": {
+              "Retry-After": {
+                "description": "Recommends the retryable time after receiving this",
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/OperationStatus"
+            }
+          },
+          "default": {
+            "description": "Error response describing the reason for operation failure.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/query-knowledgebases/projects/{projectName}:export": {
       "post": {
-        "summary": "Export project metadata and assets.",
+        "summary": "Export project metadata and assets. Improved!",
         "operationId": "QuestionAnsweringProjects_Export",
+        "x-ms-long-running-operation": true,
         "parameters": [
           {
             "$ref": "common.json#/parameters/ProjectNamePathParameter"
@@ -258,17 +301,13 @@
             "$ref": "common.json#/parameters/ApiVersionParameter"
           },
           {
-            "$ref": "#/parameters/ImportExportFormatParameter"
-          },
-          {
-            "$ref": "#/parameters/AssetKindParameter"
+            "name": "Operation-id",
+            "in": "header",
+            "type": "string",
+            "description": "The operation id",
+            "pattern": "^[a-z0-9-]+$",
+            "maxLength": 64
           }
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
         ],
         "responses": {
           "200": {
@@ -278,10 +317,28 @@
             }
           },
           "202": {
-            "description": "A successful call results with an Operation-Location header used to check the status of the job.",
+            "description": "Accepted",
             "headers": {
+              "Retry-After": {
+                "description": "Recommends the retryable time after receiving this",
+                "type": "integer",
+                "format": "int32"
+              },
               "Operation-Location": {
+                "description": "URL for the status monitor for the operation",
                 "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/OperationStatus"
+            },
+            "x-links": {
+              "OperationResults": {
+                "description": "Link to obtain operation status",
+                "operationId": "Operations_GetStatus",
+                "parameters": {
+                  "operationId": "$response.body.id"
+                }
               }
             }
           },
@@ -291,13 +348,7 @@
               "$ref": "common.json#/definitions/ErrorResponse"
             }
           }
-        },
-        "x-ms-examples": {
-          "Successful query": {
-            "$ref": "./examples/questionanswering/authoring/SuccessfulProjectSubmitExportJob.json"
-          }
-        },
-        "x-ms-long-running-operation": true
+        }
       }
     },
     "/query-knowledgebases/projects/{projectName}/export/jobs/{jobId}": {
@@ -453,20 +504,75 @@
           },
           {
             "$ref": "common.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "Operation-Id",
+            "in": "header",
+            "type":"string",
+            "description": "The operation id used to track the operation result.",
+            "pattern": "^[a-z0-9-]+$",
+            "maxLength": 64
           }
         ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
+        "x-ms-long-running-operation": true,
         "responses": {
-          "202": {
-            "description": "A successful call results with an Operation-Location header used to check the status of the job.",
+          "200": {
+            "description": "OK",
             "headers": {
-              "Operation-Location": {
+              "Operation-id": {
+                "description": "Operation ID",
                 "type": "string"
+              },
+              "Retry-After": {
+                "description": "Retry interval in seconds",
+                "type": "integer",
+                "format": "int32"
+              },
+              "Operation-Location": {
+                "description": "The URI of the long-running operation.",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ProjectDeployment"
+            },
+            "x-links": {
+              "OperationResults": {
+                "description": "Link to obtain operation status",
+                "operationId": "Operations_GetStatus",
+                "parameters": {
+                  "operationId": "$response.header.operation-id"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Operation-id": {
+                "description": "Operation ID",
+                "type": "string"
+              },
+              "Retry-After": {
+                "description": "Retry interval in seconds",
+                "type": "integer",
+                "format": "int32"
+              },
+              "Operation-Location": {
+                "description": "The URI of the long-running operation.",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ProjectDeployment"
+            },
+            "x-links": {
+              "OperationResults": {
+                "description": "Link to obtain operation status",
+                "operationId": "Operations_GetStatus",
+                "parameters": {
+                  "operationId": "$response.header.operation-id"
+                }
               }
             }
           },
@@ -481,8 +587,7 @@
           "Successful query": {
             "$ref": "./examples/questionanswering/authoring/SuccessfulProjectSubmitDeployJob.json"
           }
-        },
-        "x-ms-long-running-operation": true
+        }
       }
     },
     "/query-knowledgebases/projects/{projectName}/deployments/{deploymentName}/jobs/{jobId}": {
@@ -1724,6 +1829,33 @@
           "format": "date-time"
         }
       }
+    },
+    "OperationStatus": {
+      "description": "The status of operation.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The operation Id."
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the operation.",
+          "enum": ["NotStarted", "Running", "Succeeded", "Failed", "Cancelled"]
+        },
+        "error": {
+          "$ref": "common.json#/definitions/Error"
+        },
+        "result": {
+          "description": "Final result of operation",
+          "type": "object",
+          "additionalProperties": {}
+        }
+      },
+      "required": [
+        "id",
+        "status"
+      ]
     }
   },
   "parameters": {
