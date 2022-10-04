@@ -2604,7 +2604,6 @@
           "$ref": "#/definitions/EncryptionProperties"
         },
         "allowedAuthenticationModes": {
-          "x-nullable": true,
           "type": "array",
           "items": {
             "$ref": "#/definitions/AuthenticationMode"
@@ -2656,7 +2655,6 @@
           "$ref": "#/definitions/EncryptionProperties"
         },
         "allowedAuthenticationModes": {
-          "x-nullable": true,
           "type": "array",
           "items": {
             "$ref": "#/definitions/AuthenticationMode"
@@ -2900,20 +2898,17 @@
           "$ref": "#/definitions/KeyVaultReference"
         },
         "publicNetworkAccess": {
-          "x-nullable": true,
           "title": "The network interface type for accessing Azure Batch service and Batch account operations.",
           "description": "If not specified, the default value is 'enabled'.",
           "$ref": "#/definitions/PublicNetworkAccessType"
         },
         "networkProfile": {
-          "x-nullable": true,
           "title": "Network profile for Batch account, which contains network rule settings for each endpoint.",
           "description": "The network profile only takes effect when publicNetworkAccess is enabled.",
           "$ref": "#/definitions/NetworkProfile"
         },
         "privateEndpointConnections": {
           "readOnly": true,
-          "x-nullable": true,
           "type": "array",
           "items": {
             "$ref": "#/definitions/PrivateEndpointConnection"
@@ -2933,7 +2928,6 @@
         },
         "dedicatedCoreQuota": {
           "readOnly": true,
-          "x-nullable": true,
           "type": "integer",
           "format": "int32",
           "title": "The dedicated core quota for the Batch account.",
@@ -2941,7 +2935,6 @@
         },
         "lowPriorityCoreQuota": {
           "readOnly": true,
-          "x-nullable": true,
           "type": "integer",
           "format": "int32",
           "title": "The Spot/low-priority core quota for the Batch account.",
@@ -2949,7 +2942,6 @@
         },
         "dedicatedCoreQuotaPerVMFamily": {
           "readOnly": true,
-          "x-nullable": true,
           "type": "array",
           "items": {
             "$ref": "#/definitions/VirtualMachineFamilyCoreQuota"
