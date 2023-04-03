@@ -42,7 +42,8 @@
               "value": "v1.1"
             }
           ]
-        }
+        },
+        "x-ms-parameter-location": "client"
       }
     ]
   },
