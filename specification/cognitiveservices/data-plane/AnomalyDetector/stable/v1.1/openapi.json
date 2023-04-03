@@ -22,7 +22,8 @@
         "in": "path",
         "required": true,
         "description": "Supported Cognitive Services endpoints (protocol and hostname, for example:\nhttps://westus2.api.cognitive.microsoft.com).",
-        "type": "string"
+        "type": "string",
+        "x-ms-parameter-location": "client"
       },
       {
         "name": "ApiVersion",
