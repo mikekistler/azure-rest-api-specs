@@ -214,7 +214,8 @@
       "post": {
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
+          "final-state-via": "location",
+          "final-state-schema": "#/definitions/TestNotificationDetailsResponse"
         },
         "description": "Send test notifications to a set of provided receivers",
         "operationId": "ActionGroups_CreateNotificationsAtActionGroupResourceLevel",
@@ -254,12 +255,6 @@
                 "type": "string",
                 "description": "The location header that has the polling uri."
               }
-            }
-          },
-          "200": {
-            "description": "The notification succeeded",
-            "schema": {
-              "$ref": "#/definitions/TestNotificationDetailsResponse"
             }
           },
           "default": {
