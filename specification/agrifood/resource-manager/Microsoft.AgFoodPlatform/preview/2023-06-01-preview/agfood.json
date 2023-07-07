@@ -578,12 +578,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/DataManagerForAgriculture"
-            }
-          },
           "202": {
             "description": "Accepted",
             "schema": {
@@ -604,7 +598,8 @@
         },
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
+          "final-state-via": "location",
+          "final-state-schema": "#/definitions/DataManagerForAgriculture"
         },
         "x-ms-examples": {
           "DataManagerForAgricultureResources_Update": {
