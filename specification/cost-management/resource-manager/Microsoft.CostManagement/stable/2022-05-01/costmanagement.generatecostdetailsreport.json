@@ -88,12 +88,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Request processing completed.",
-            "schema": {
-              "$ref": "#/definitions/CostDetailsOperationResults"
-            }
-          },
           "202": {
             "description": "Accepted. Request will be processed. Use the Location header to check the status.",
             "headers": {
