@@ -1477,6 +1477,7 @@
       "required": [
         "kind"
       ],
+      "discriminator": "kind",
       "type": "object",
       "properties": {
         "kind": {
@@ -1489,14 +1490,40 @@
         "file": {
           "$ref": "#/definitions/FileSource",
           "description": "Defines the file source info to be used for play"
-        },
+        }
+      }
+    },
+    "PlayTextSource": {
+      "required": [
+        "text"
+      ],
+      "x-ms-discriminator-value": "text",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/PlaySource"
+        }
+      ],
+      "properties": {
         "text": {
-          "$ref": "#/definitions/TextSource",
-          "description": "Defines the text source info to be used for play"
-        },
-        "ssml": {
-          "$ref": "#/definitions/SsmlSource",
-          "description": "Defines the ssml(Speech Synthesis Markup Language) source info to be used for play"
+          "$ref": "#/definitions/TextSource"
+        }
+      }
+    },
+    "PlaySsmlSource": {
+      "required": [
+        "text"
+      ],
+      "x-ms-discriminator-value": "ssml",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/PlaySource"
+        }
+      ],
+      "properties": {
+        "text": {
+          "$ref": "#/definitions/SsmlSource"
         }
       }
     },
