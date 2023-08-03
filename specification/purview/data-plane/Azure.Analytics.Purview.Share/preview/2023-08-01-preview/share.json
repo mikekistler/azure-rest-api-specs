@@ -1,0 +1,2386 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Purview Share",
+    "version": "2023-08-01-preview",
+    "description": "Creates a data plane client for Purview Share.",
+    "x-typespec-generated": [
+      {
+        "emitter": "@azure-tools/typespec-autorest"
+      }
+    ]
+  },
+  "schemes": [
+    "https"
+  ],
+  "x-ms-parameterized-host": {
+    "hostTemplate": "{endpoint}",
+    "useSchemePrefix": false,
+    "parameters": [
+      {
+        "name": "endpoint",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ]
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "security": [
+    {
+      "Auth": [
+        "https://purview.azure.net/.default"
+      ]
+    }
+  ],
+  "securityDefinitions": {
+    "Auth": {
+      "type": "oauth2",
+      "description": "Azure Active Directory OAuth2 Flow.",
+      "flow": "implicit",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "scopes": {
+        "https://purview.azure.net/.default": ""
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "ReceivedShare"
+    },
+    {
+      "name": "SentShare"
+    },
+    {
+      "name": "SentShareInvitation"
+    },
+    {
+      "name": "ShareResource"
+    },
+    {
+      "name": "TenantEmailRegistration"
+    }
+  ],
+  "paths": {
+    "/emails:activate": {
+      "post": {
+        "operationId": "TenantEmailRegistrations_Activate",
+        "tags": [
+          "TenantEmailRegistration"
+        ],
+        "summary": "Activates the tenant and email combination using the activation code received.",
+        "description": "Activates the email registration for current tenant",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent"
+          },
+          {
+            "name": "tenantEmailRegistration",
+            "in": "body",
+            "description": "The tenant email registration payload",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TenantEmailRegistration"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/TenantEmailRegistration"
+            },
+            "headers": {
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Activate": {
+            "$ref": "./examples/ReceivedShares_ActivateTenantEmailRegistration.json"
+          }
+        }
+      }
+    },
+    "/emails:register": {
+      "post": {
+        "operationId": "TenantEmailRegistrations_Register",
+        "tags": [
+          "TenantEmailRegistration"
+        ],
+        "summary": "Registers the tenant and email combination for activation.",
+        "description": "Register an email for the current tenant",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/TenantEmailRegistration"
+            },
+            "headers": {
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Register": {
+            "$ref": "./examples/ReceivedShares_RegisterTenantEmailRegistration.json"
+          }
+        }
+      }
+    },
+    "/receivedShares/{receivedShareId}": {
+      "get": {
+        "operationId": "ReceivedShares_Get",
+        "tags": [
+          "ReceivedShare"
+        ],
+        "summary": "Get a received share by unique id.",
+        "description": "Get a received share",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "receivedShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ReceivedShare"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get": {
+            "$ref": "./examples/ReceivedShares_Get.json"
+          },
+          "GetAdlsGen2": {
+            "$ref": "./examples/ReceivedShares_GetAdlsGen2Account.json"
+          },
+          "GetBlob": {
+            "$ref": "./examples/ReceivedShares_GetBlobAccount.json"
+          }
+        }
+      },
+      "put": {
+        "operationId": "ReceivedShares_CreateOrReplace",
+        "tags": [
+          "ReceivedShare"
+        ],
+        "summary": "Create or replace a received share.",
+        "description": "Update changes to a received share",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "receivedShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent"
+          },
+          {
+            "name": "resource",
+            "in": "body",
+            "description": "The resource instance.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReceivedShare"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ReceivedShare"
+            },
+            "headers": {
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "201": {
+            "description": "The request has succeeded and a new resource has been created as a result.",
+            "schema": {
+              "$ref": "#/definitions/ReceivedShare"
+            },
+            "headers": {
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "CreateOrReplaceAdlsGen2": {
+            "$ref": "./examples/ReceivedShares_CreateOrReplaceAdlsGen2Account.json"
+          },
+          "CreateOrReplaceBlob": {
+            "$ref": "./examples/ReceivedShares_CreateOrReplaceBlobAccount.json"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "ReceivedShares_Delete",
+        "tags": [
+          "ReceivedShare"
+        ],
+        "summary": "Deletes a received share",
+        "description": "Delete a received share",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "receivedShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The request has been accepted for processing, but processing has not yet completed.",
+            "schema": {
+              "type": "object",
+              "description": "Provides status details for long running operations.",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The unique ID of the operation."
+                },
+                "status": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.OperationState",
+                  "description": "The status of the operation"
+                },
+                "error": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.Error",
+                  "description": "Error object that describes the error when status is \"Failed\"."
+                }
+              },
+              "required": [
+                "id",
+                "status"
+              ]
+            },
+            "headers": {
+              "Operation-Location": {
+                "type": "string",
+                "format": "uri",
+                "description": "The location for monitoring the operation state."
+              },
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete": {
+            "$ref": "./examples/ReceivedShares_Delete.json"
+          }
+        }
+      }
+    },
+    "/receivedShares/{receivedShareId}/operations/{operationId}": {
+      "get": {
+        "operationId": "ReceivedShares_GetStatus",
+        "tags": [
+          "ReceivedShare"
+        ],
+        "summary": "Get received share operation status.",
+        "description": "Gets status of a ReceivedShare operation.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "receivedShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "operationId",
+            "in": "path",
+            "description": "The unique ID of the operation.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "description": "Provides status details for long running operations.",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The unique ID of the operation."
+                },
+                "status": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.OperationState",
+                  "description": "The status of the operation"
+                },
+                "error": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.Error",
+                  "description": "Error object that describes the error when status is \"Failed\"."
+                },
+                "result": {
+                  "$ref": "#/definitions/ReceivedShare",
+                  "description": "The result of the operation."
+                }
+              },
+              "required": [
+                "id",
+                "status"
+              ]
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/receivedShares/attached": {
+      "get": {
+        "operationId": "ReceivedShares_ListAttached",
+        "tags": [
+          "ReceivedShare"
+        ],
+        "summary": "Get a list of attached received shares.",
+        "description": "List attached received shares",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "referenceName",
+            "in": "query",
+            "description": "A name that references a data store.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.FilterQueryParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.OrderByQueryParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "description": "Paged collection of ReceivedShare items",
+              "properties": {
+                "value": {
+                  "type": "array",
+                  "description": "The ReceivedShare items on this page",
+                  "items": {
+                    "$ref": "#/definitions/ReceivedShare"
+                  }
+                },
+                "nextLink": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The link to the next page of items"
+                }
+              },
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "ListAttached": {
+            "$ref": "./examples/ReceivedShares_ListAttached.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/receivedShares/detached": {
+      "get": {
+        "operationId": "ReceivedShares_ListDetached",
+        "tags": [
+          "ReceivedShare"
+        ],
+        "summary": "List detached received shares",
+        "description": "Get a list of detached received shares.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.FilterQueryParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.OrderByQueryParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "description": "Paged collection of ReceivedShare items",
+              "properties": {
+                "value": {
+                  "type": "array",
+                  "description": "The ReceivedShare items on this page",
+                  "items": {
+                    "$ref": "#/definitions/ReceivedShare"
+                  }
+                },
+                "nextLink": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The link to the next page of items"
+                }
+              },
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "ListDetached": {
+            "$ref": "./examples/ReceivedShares_ListDetached.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/sentShares": {
+      "get": {
+        "operationId": "SentShares_List",
+        "tags": [
+          "SentShare"
+        ],
+        "summary": "Get a list of sent shares.",
+        "description": "List sent shares",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "referenceName",
+            "in": "query",
+            "description": "A name that references a data store.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.FilterQueryParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.OrderByQueryParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "description": "Paged collection of SentShare items",
+              "properties": {
+                "value": {
+                  "type": "array",
+                  "description": "The SentShare items on this page",
+                  "items": {
+                    "$ref": "#/definitions/SentShare"
+                  }
+                },
+                "nextLink": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The link to the next page of items"
+                }
+              },
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List": {
+            "$ref": "./examples/SentShares_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/sentShares/{sentShareId}": {
+      "get": {
+        "operationId": "SentShares_Get",
+        "tags": [
+          "SentShare"
+        ],
+        "summary": "Get a sent share by guid.",
+        "description": "Get a sent share",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/SentShare"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get": {
+            "$ref": "./examples/SentShares_Get.json"
+          },
+          "GetAdlsGen2": {
+            "$ref": "./examples/SentShares_GetAdlsGen2Account.json"
+          },
+          "GetBlob": {
+            "$ref": "./examples/SentShares_GetBlobAccount.json"
+          }
+        }
+      },
+      "put": {
+        "operationId": "SentShares_CreateOrReplace",
+        "tags": [
+          "SentShare"
+        ],
+        "summary": "Create or replace a sent share.",
+        "description": "Create or replace a sent share",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent"
+          },
+          {
+            "name": "resource",
+            "in": "body",
+            "description": "The resource instance.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SentShare"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/SentShare"
+            },
+            "headers": {
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "201": {
+            "description": "The request has succeeded and a new resource has been created as a result.",
+            "schema": {
+              "$ref": "#/definitions/SentShare"
+            },
+            "headers": {
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "CreateOrReplace": {
+            "$ref": "./examples/SentShares_CreateOrReplace.json"
+          },
+          "CreateOrReplaceAdlsGen2": {
+            "$ref": "./examples/SentShares_CreateOrReplaceAdlsGen2Account.json"
+          },
+          "CreateOrReplaceBlob": {
+            "$ref": "./examples/SentShares_CreateOrReplaceBlobAccount.json"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "SentShares_Delete",
+        "tags": [
+          "SentShare"
+        ],
+        "summary": "Deletes a sent share",
+        "description": "Delete a sent share",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The request has been accepted for processing, but processing has not yet completed.",
+            "schema": {
+              "type": "object",
+              "description": "Provides status details for long running operations.",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The unique ID of the operation."
+                },
+                "status": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.OperationState",
+                  "description": "The status of the operation"
+                },
+                "error": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.Error",
+                  "description": "Error object that describes the error when status is \"Failed\"."
+                }
+              },
+              "required": [
+                "id",
+                "status"
+              ]
+            },
+            "headers": {
+              "Operation-Location": {
+                "type": "string",
+                "format": "uri",
+                "description": "The location for monitoring the operation state."
+              },
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Delete": {
+            "$ref": "./examples/SentShares_Delete.json"
+          }
+        }
+      }
+    },
+    "/sentShares/{sentShareId}/operations/{operationId}": {
+      "get": {
+        "operationId": "SentShares_GetStatus",
+        "tags": [
+          "SentShare"
+        ],
+        "summary": "Get sent share operation status.",
+        "description": "Gets status of a SentShare operation.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "operationId",
+            "in": "path",
+            "description": "The unique ID of the operation.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "description": "Provides status details for long running operations.",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The unique ID of the operation."
+                },
+                "status": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.OperationState",
+                  "description": "The status of the operation"
+                },
+                "error": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.Error",
+                  "description": "Error object that describes the error when status is \"Failed\"."
+                },
+                "result": {
+                  "$ref": "#/definitions/SentShare",
+                  "description": "The result of the operation."
+                }
+              },
+              "required": [
+                "id",
+                "status"
+              ]
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sentShares/{sentShareId}/sentShareInvitations": {
+      "get": {
+        "operationId": "SentShareInvitations_ListInvitations",
+        "tags": [
+          "SentShareInvitation"
+        ],
+        "summary": "List all sent share invitations in a sent share",
+        "description": "List sent share recipients",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.FilterQueryParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.OrderByQueryParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "description": "Paged collection of SentShareInvitation items",
+              "properties": {
+                "value": {
+                  "type": "array",
+                  "description": "The SentShareInvitation items on this page",
+                  "items": {
+                    "$ref": "#/definitions/SentShareInvitation"
+                  }
+                },
+                "nextLink": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The link to the next page of items"
+                }
+              },
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/sentShares/{sentShareId}/sentShareInvitations/{sentShareInvitationId}": {
+      "get": {
+        "operationId": "SentShareInvitations_GetInvitation",
+        "tags": [
+          "SentShareInvitation"
+        ],
+        "summary": "Get sent share invitation",
+        "description": "Get an invitation for a sent share",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sentShareInvitationId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/SentShareInvitation"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "SentShareInvitations_CreateOrReplaceInvitation",
+        "tags": [
+          "SentShareInvitation"
+        ],
+        "summary": "Create a sent share invitation.",
+        "description": "Create a recipient for a given sent share",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sentShareInvitationId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent"
+          },
+          {
+            "name": "resource",
+            "in": "body",
+            "description": "The resource instance.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SentShareInvitation"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/SentShareInvitation"
+            },
+            "headers": {
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "201": {
+            "description": "The request has succeeded and a new resource has been created as a result.",
+            "schema": {
+              "$ref": "#/definitions/SentShareInvitation"
+            },
+            "headers": {
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "SentShareInvitations_DeleteInvitation",
+        "tags": [
+          "SentShareInvitation"
+        ],
+        "summary": "Delete Invitation in a share.",
+        "description": "Delete a sent share invitation",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sentShareInvitationId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "The request has been accepted for processing, but processing has not yet completed.",
+            "schema": {
+              "type": "object",
+              "description": "Provides status details for long running operations.",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The unique ID of the operation."
+                },
+                "status": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.OperationState",
+                  "description": "The status of the operation"
+                },
+                "error": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.Error",
+                  "description": "Error object that describes the error when status is \"Failed\"."
+                }
+              },
+              "required": [
+                "id",
+                "status"
+              ]
+            },
+            "headers": {
+              "Operation-Location": {
+                "type": "string",
+                "format": "uri",
+                "description": "The location for monitoring the operation state."
+              },
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sentShares/{sentShareId}/sentShareInvitations/{sentShareInvitationId}:notify": {
+      "post": {
+        "operationId": "SentShareInvitations_Notify",
+        "tags": [
+          "SentShareInvitation"
+        ],
+        "summary": "Notifies the recipient of the sent share invitation.",
+        "description": "Notifies the user recipient of the sent share invitation, does not apply to service invitations.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sentShareInvitationId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/SentShareInvitation"
+            },
+            "headers": {
+              "Repeatability-Result": {
+                "type": "string",
+                "description": "Indicates whether the repeatable request was accepted or rejected.",
+                "enum": [
+                  "accepted",
+                  "rejected"
+                ]
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sentShares/{sentShareId}/sentShareInvitations/{sentShareInvitationId}/operations/{operationId}": {
+      "get": {
+        "operationId": "SentShareInvitations_GetStatus",
+        "tags": [
+          "SentShareInvitation"
+        ],
+        "summary": "Get sent share invitation operation status.",
+        "description": "Gets status of a SentShareInvitation operation.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "name": "sentShareId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sentShareInvitationId",
+            "in": "path",
+            "description": "The unique id of the resource.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "operationId",
+            "in": "path",
+            "description": "The unique ID of the operation.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "description": "Provides status details for long running operations.",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The unique ID of the operation."
+                },
+                "status": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.OperationState",
+                  "description": "The status of the operation"
+                },
+                "error": {
+                  "$ref": "#/definitions/Azure.Core.Foundations.Error",
+                  "description": "Error object that describes the error when status is \"Failed\"."
+                },
+                "result": {
+                  "$ref": "#/definitions/SentShareInvitation",
+                  "description": "The result of the operation."
+                }
+              },
+              "required": [
+                "id",
+                "status"
+              ]
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shareResources": {
+      "get": {
+        "operationId": "ShareResources_List",
+        "tags": [
+          "ShareResource"
+        ],
+        "summary": "API operation to list ShareResources.",
+        "description": "List share resources",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.FilterQueryParameter"
+          },
+          {
+            "$ref": "#/parameters/Azure.Core.OrderByQueryParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "description": "Paged collection of ShareResource items",
+              "properties": {
+                "value": {
+                  "type": "array",
+                  "description": "The ShareResource items on this page",
+                  "items": {
+                    "$ref": "#/definitions/ShareResource"
+                  }
+                },
+                "nextLink": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "The link to the next page of items"
+                }
+              },
+              "required": [
+                "value"
+              ]
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "description": "String error code indicating what went wrong.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "List": {
+            "$ref": "./examples/ShareResources_List.json"
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AdlsGen2AccountSink": {
+      "type": "object",
+      "description": "AdlsGen2 Sink",
+      "properties": {
+        "containerName": {
+          "type": "string",
+          "description": "Adls Gen 2 Container Name"
+        },
+        "folder": {
+          "type": "string",
+          "description": "Adls Gen 2 Folder"
+        },
+        "location": {
+          "type": "string",
+          "description": "Adls Gen 2 Location",
+          "readOnly": true
+        },
+        "mountPath": {
+          "type": "string",
+          "description": "Adls Gen 2 Mount Path"
+        }
+      },
+      "required": [
+        "containerName",
+        "folder"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/Sink"
+        }
+      ],
+      "x-ms-discriminator-value": "AdlsGen2Account"
+    },
+    "AdlsGen2Artifact": {
+      "type": "object",
+      "description": "An Adls Gen2 storage account artifact.",
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "Location of the storage account.",
+          "readOnly": true
+        },
+        "paths": {
+          "type": "array",
+          "description": "A list of Adls Gen2 storage account paths.",
+          "items": {
+            "$ref": "#/definitions/StorageAccountPath"
+          },
+          "x-ms-identifiers": []
+        }
+      },
+      "required": [
+        "paths"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/Artifact"
+        }
+      ],
+      "x-ms-discriminator-value": "AdlsGen2Account"
+    },
+    "Artifact": {
+      "type": "object",
+      "description": "A class for sent share artifact.",
+      "properties": {
+        "storeKind": {
+          "type": "string",
+          "description": "Discriminator property for Artifact."
+        },
+        "storeReference": {
+          "$ref": "#/definitions/StoreReference",
+          "description": "A Store Reference for an artifact or sink."
+        }
+      },
+      "discriminator": "storeKind",
+      "required": [
+        "storeKind",
+        "storeReference"
+      ]
+    },
+    "Azure.Core.Foundations.Error": {
+      "type": "object",
+      "description": "The error object.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "One of a server-defined set of error codes."
+        },
+        "message": {
+          "type": "string",
+          "description": "A human-readable representation of the error."
+        },
+        "target": {
+          "type": "string",
+          "description": "The target of the error."
+        },
+        "details": {
+          "type": "array",
+          "description": "An array of details about specific errors that led to this reported error.",
+          "items": {
+            "$ref": "#/definitions/Azure.Core.Foundations.Error"
+          },
+          "x-ms-identifiers": []
+        },
+        "innererror": {
+          "$ref": "#/definitions/Azure.Core.Foundations.InnerError",
+          "description": "An object containing more specific information than the current object about the error."
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    },
+    "Azure.Core.Foundations.ErrorResponse": {
+      "type": "object",
+      "description": "A response containing error details.",
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/Azure.Core.Foundations.Error",
+          "description": "The error object."
+        }
+      },
+      "required": [
+        "error"
+      ]
+    },
+    "Azure.Core.Foundations.InnerError": {
+      "type": "object",
+      "description": "An object containing more specific information about the error. As per Microsoft One API guidelines - https://github.com/Microsoft/api-guidelines/blob/vNext/Guidelines.md#7102-error-condition-responses.",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "One of a server-defined set of error codes."
+        },
+        "innererror": {
+          "$ref": "#/definitions/Azure.Core.Foundations.InnerError",
+          "description": "Inner error."
+        }
+      }
+    },
+    "Azure.Core.Foundations.OperationState": {
+      "type": "string",
+      "description": "Enum describing allowed operation states.",
+      "enum": [
+        "InProgress",
+        "Succeeded",
+        "Failed",
+        "Canceled"
+      ],
+      "x-ms-enum": {
+        "name": "OperationState",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "InProgress",
+            "value": "InProgress",
+            "description": "The operation is in progress."
+          },
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "The operation has completed successfully."
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "The operation has failed."
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "The operation has been canceled by the user."
+          }
+        ]
+      }
+    },
+    "BlobAccountSink": {
+      "type": "object",
+      "description": "Blob Sink",
+      "properties": {
+        "containerName": {
+          "type": "string",
+          "description": "Blob Container Name"
+        },
+        "folder": {
+          "type": "string",
+          "description": "Blob Folder"
+        },
+        "location": {
+          "type": "string",
+          "description": "Blob Location",
+          "readOnly": true
+        },
+        "mountPath": {
+          "type": "string",
+          "description": "Blob Mount Path"
+        }
+      },
+      "required": [
+        "containerName",
+        "folder"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/Sink"
+        }
+      ],
+      "x-ms-discriminator-value": "BlobAccount"
+    },
+    "BlobStorageArtifact": {
+      "type": "object",
+      "description": "Blob storage account artifact.",
+      "properties": {
+        "location": {
+          "type": "string",
+          "description": "Location of the storage account.",
+          "readOnly": true
+        },
+        "paths": {
+          "type": "array",
+          "description": "A list of blob storage account paths.",
+          "items": {
+            "$ref": "#/definitions/StorageAccountPath"
+          },
+          "x-ms-identifiers": []
+        }
+      },
+      "required": [
+        "paths"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/Artifact"
+        }
+      ],
+      "x-ms-discriminator-value": "BlobAccount"
+    },
+    "InPlaceReceivedShare": {
+      "type": "object",
+      "description": "An InPlace received share kind.",
+      "properties": {
+        "assetLocation": {
+          "type": "string",
+          "description": "Location of the shared Asset.",
+          "readOnly": true
+        },
+        "assetStoreKind": {
+          "$ref": "#/definitions/StoreKind",
+          "description": "The types of asset."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time at which the received share was created.",
+          "readOnly": true
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Received Share Name"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The expiration date of the received share.",
+          "readOnly": true
+        },
+        "receiverEmail": {
+          "type": "string",
+          "description": "Email of the user/receiver who received the sent share invitation",
+          "readOnly": true
+        },
+        "receiverName": {
+          "type": "string",
+          "description": "Name of the user/receiver who received the sent share invitation",
+          "readOnly": true
+        },
+        "receiverTenantName": {
+          "type": "string",
+          "description": "Tenant name of the user/receiver who received the sent share invitation",
+          "readOnly": true
+        },
+        "senderEmail": {
+          "type": "string",
+          "description": "Email of the sender who created the sent share invitation",
+          "readOnly": true
+        },
+        "senderName": {
+          "type": "string",
+          "description": "Name of the sender who created the sent share invitation",
+          "readOnly": true
+        },
+        "senderTenantName": {
+          "type": "string",
+          "description": "Tenant name of the sender who created the sent share invitation",
+          "readOnly": true
+        },
+        "sentShareDescription": {
+          "type": "string",
+          "description": "Share description.",
+          "readOnly": true
+        },
+        "sharedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time at which the sent share was shared.",
+          "readOnly": true
+        },
+        "shareStatus": {
+          "$ref": "#/definitions/ShareStatus",
+          "description": "Share status."
+        },
+        "sink": {
+          "$ref": "#/definitions/Sink",
+          "description": "Holds details on the destination of the mapped artifact"
+        },
+        "state": {
+          "$ref": "#/definitions/State",
+          "description": "State of the resource",
+          "readOnly": true
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ReceivedShare"
+        }
+      ],
+      "x-ms-discriminator-value": "InPlace"
+    },
+    "InPlaceSentShare": {
+      "type": "object",
+      "description": "An InPlace sent share.",
+      "properties": {
+        "artifact": {
+          "$ref": "#/definitions/Artifact",
+          "description": "A class for sent share artifact."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time at which the sent share was created.",
+          "readOnly": true
+        },
+        "dependsOn": {
+          "type": "array",
+          "description": "List of shares on which the sent share depends.",
+          "items": {
+            "type": "string"
+          },
+          "readOnly": true
+        },
+        "description": {
+          "type": "string",
+          "description": "Sent share description."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The name of the sent share"
+        },
+        "senderEmail": {
+          "type": "string",
+          "description": "Email of the sender who created the sent share.",
+          "readOnly": true
+        },
+        "senderName": {
+          "type": "string",
+          "description": "Name of the sender who created the sent share.",
+          "readOnly": true
+        },
+        "senderTenantName": {
+          "type": "string",
+          "description": "Tenant name of the sender who created the sent share.",
+          "readOnly": true
+        },
+        "state": {
+          "$ref": "#/definitions/State",
+          "description": "State of the resource",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "artifact",
+        "displayName"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/SentShare"
+        }
+      ],
+      "x-ms-discriminator-value": "InPlace"
+    },
+    "ReceivedShare": {
+      "type": "object",
+      "description": "A received share.",
+      "properties": {
+        "shareKind": {
+          "type": "string",
+          "description": "Discriminator property for ReceivedShare."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique id of the resource.",
+          "readOnly": true
+        }
+      },
+      "discriminator": "shareKind",
+      "required": [
+        "shareKind",
+        "id"
+      ]
+    },
+    "SentShare": {
+      "type": "object",
+      "description": "A sent share.",
+      "properties": {
+        "shareKind": {
+          "type": "string",
+          "description": "Discriminator property for SentShare."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique id of the resource.",
+          "readOnly": true
+        }
+      },
+      "discriminator": "shareKind",
+      "required": [
+        "shareKind",
+        "id"
+      ]
+    },
+    "SentShareInvitation": {
+      "type": "object",
+      "description": "A sent share invitation.",
+      "properties": {
+        "invitationKind": {
+          "type": "string",
+          "description": "Discriminator property for SentShareInvitation."
+        },
+        "id": {
+          "type": "string",
+          "description": "The unique id of the resource.",
+          "readOnly": true
+        }
+      },
+      "discriminator": "invitationKind",
+      "required": [
+        "invitationKind",
+        "id"
+      ]
+    },
+    "ServiceInvitation": {
+      "type": "object",
+      "description": "An service invitation.",
+      "properties": {
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time at which the invitation will expire."
+        },
+        "senderEmail": {
+          "type": "string",
+          "description": "Email address of the sender.",
+          "readOnly": true
+        },
+        "senderName": {
+          "type": "string",
+          "description": "Name of the sender",
+          "readOnly": true
+        },
+        "senderTenantName": {
+          "type": "string",
+          "description": "Tenant name of the sender",
+          "readOnly": true
+        },
+        "sentAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets the time at which the invitation was sent.",
+          "readOnly": true
+        },
+        "shareStatus": {
+          "$ref": "#/definitions/ShareStatus",
+          "description": "Share status."
+        },
+        "state": {
+          "$ref": "#/definitions/State",
+          "description": "State of the resource",
+          "readOnly": true
+        },
+        "targetActiveDirectoryId": {
+          "type": "string",
+          "description": "The target azure active directory id the invitation is sent to."
+        },
+        "targetObjectId": {
+          "type": "string",
+          "description": "The target object id in the azure active directory the invitation is sent to."
+        }
+      },
+      "required": [
+        "targetActiveDirectoryId",
+        "targetObjectId"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/SentShareInvitation"
+        }
+      ],
+      "x-ms-discriminator-value": "Service"
+    },
+    "ShareResource": {
+      "type": "object",
+      "description": "A share resource.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique id of the resource.",
+          "readOnly": true
+        },
+        "receivedSharesCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "A count of Received Shares associated with the ShareResource."
+        },
+        "sentSharesCount": {
+          "type": "integer",
+          "format": "int32",
+          "description": "A count of Sent Shares associated with the ShareResource"
+        },
+        "storeKind": {
+          "$ref": "#/definitions/StoreKind",
+          "description": "The types of asset."
+        },
+        "storeReference": {
+          "$ref": "#/definitions/StoreReference",
+          "description": "A Store Reference for an artifact or sink."
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "ShareStatus": {
+      "type": "string",
+      "description": "The status of the share",
+      "enum": [
+        "Detached",
+        "Attached"
+      ],
+      "x-ms-enum": {
+        "name": "ShareStatus",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Detached",
+            "value": "Detached",
+            "description": "The share has not been accepted yet"
+          },
+          {
+            "name": "Attached",
+            "value": "Attached",
+            "description": "The share has been accepted by the recipient"
+          }
+        ]
+      }
+    },
+    "Sink": {
+      "type": "object",
+      "description": "Holds details on the destination of the mapped artifact",
+      "properties": {
+        "storeKind": {
+          "type": "string",
+          "description": "Discriminator property for Sink."
+        },
+        "storeReference": {
+          "$ref": "#/definitions/StoreReference",
+          "description": "A Store Reference for an artifact or sink."
+        }
+      },
+      "discriminator": "storeKind",
+      "required": [
+        "storeKind",
+        "storeReference"
+      ]
+    },
+    "State": {
+      "type": "string",
+      "description": "The state of the resource",
+      "enum": [
+        "Unknown",
+        "Succeeded",
+        "Creating",
+        "Deleting",
+        "Moving",
+        "Failed"
+      ],
+      "x-ms-enum": {
+        "name": "State",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Unknown",
+            "value": "Unknown",
+            "description": "The state of the resource is 'Unknown'"
+          },
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "The state of the resource is 'Succeeded'"
+          },
+          {
+            "name": "Creating",
+            "value": "Creating",
+            "description": "The state of the resource is 'Creating'"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "The state of the resource is 'Deleting'"
+          },
+          {
+            "name": "Moving",
+            "value": "Moving",
+            "description": "The state of the resource is 'Moving'"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "The state of the resource is 'Failed'"
+          }
+        ]
+      }
+    },
+    "StorageAccountPath": {
+      "type": "object",
+      "description": "Defines a single StorageAccountPath path",
+      "properties": {
+        "containerName": {
+          "type": "string",
+          "description": "Gets or sets the container name"
+        },
+        "receiverPath": {
+          "type": "string",
+          "description": "Gets or sets the path on the receiver side where the artifact is to be mapped"
+        },
+        "senderPath": {
+          "type": "string",
+          "description": "Gets or sets the path to file/folder within the container to be shared"
+        }
+      },
+      "required": [
+        "containerName"
+      ]
+    },
+    "StoreKind": {
+      "type": "string",
+      "description": "The type of store",
+      "enum": [
+        "AdlsGen2Account",
+        "BlobAccount"
+      ],
+      "x-ms-enum": {
+        "name": "StoreKind",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "AdlsGen2Account",
+            "value": "AdlsGen2Account",
+            "description": "The store kind is a Adls Gen 2 storage account"
+          },
+          {
+            "name": "BlobAccount",
+            "value": "BlobAccount",
+            "description": "The store kind is a Blob storage account"
+          }
+        ]
+      }
+    },
+    "StoreReference": {
+      "type": "object",
+      "description": "A Store Reference for an artifact or sink.",
+      "properties": {
+        "referenceName": {
+          "type": "string",
+          "description": "Reference name for resource associated with the sink or artifact."
+        }
+      }
+    },
+    "TenantEmailRegistration": {
+      "type": "object",
+      "description": "A tenant email registration.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique id of the TenantEmailRegistration.",
+          "readOnly": true
+        },
+        "activationCode": {
+          "type": "string",
+          "description": "Activation code for the registration."
+        },
+        "activationExpiration": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Date of the activation expiration.",
+          "readOnly": true
+        },
+        "email": {
+          "type": "string",
+          "description": "The email to register.",
+          "readOnly": true
+        },
+        "registrationStatus": {
+          "$ref": "#/definitions/TenantEmailRegistrationStatus",
+          "description": "Defines the supported types for registration.",
+          "readOnly": true
+        },
+        "state": {
+          "$ref": "#/definitions/State",
+          "description": "State of the resource",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "description": "The tenant id to register.",
+          "readOnly": true
+        }
+      },
+      "required": [
+        "id",
+        "activationCode"
+      ]
+    },
+    "TenantEmailRegistrationStatus": {
+      "type": "string",
+      "description": "The tenant email registration status",
+      "enum": [
+        "ActivationPending",
+        "Activated",
+        "ActivationAttemptsExhausted"
+      ],
+      "x-ms-enum": {
+        "name": "TenantEmailRegistrationStatus",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "ActivationPending",
+            "value": "ActivationPending",
+            "description": "The tenant email registration is in pending state"
+          },
+          {
+            "name": "Activated",
+            "value": "Activated",
+            "description": "The tenant email registration is complete and has been activated"
+          },
+          {
+            "name": "ActivationAttemptsExhausted",
+            "value": "ActivationAttemptsExhausted",
+            "description": "The tenant email registration has exhausted the max attempts"
+          }
+        ]
+      }
+    },
+    "UserInvitation": {
+      "type": "object",
+      "description": "A user invitation kind.",
+      "properties": {
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time at which the invitation will expire."
+        },
+        "notify": {
+          "type": "boolean",
+          "description": "Whether or not the recipient was notified via email."
+        },
+        "senderEmail": {
+          "type": "string",
+          "description": "Email address of the sender.",
+          "readOnly": true
+        },
+        "senderName": {
+          "type": "string",
+          "description": "Name of the sender",
+          "readOnly": true
+        },
+        "senderTenantName": {
+          "type": "string",
+          "description": "Tenant name of the sender",
+          "readOnly": true
+        },
+        "sentAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets the time at which the invitation was sent.",
+          "readOnly": true
+        },
+        "shareStatus": {
+          "$ref": "#/definitions/ShareStatus",
+          "description": "Share status."
+        },
+        "state": {
+          "$ref": "#/definitions/State",
+          "description": "State of the resource",
+          "readOnly": true
+        },
+        "targetEmail": {
+          "type": "string",
+          "description": "The receiver email for the invitation is being sent."
+        }
+      },
+      "required": [
+        "targetEmail"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/definitions/SentShareInvitation"
+        }
+      ],
+      "x-ms-discriminator-value": "User"
+    }
+  },
+  "parameters": {
+    "Azure.Core.FilterQueryParameter": {
+      "name": "filter",
+      "in": "query",
+      "description": "Filter the result list using the given expression.",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "Azure.Core.Foundations.ApiVersionParameter": {
+      "name": "api-version",
+      "in": "query",
+      "description": "The API version to use for this operation.",
+      "required": true,
+      "type": "string",
+      "minLength": 1,
+      "x-ms-parameter-location": "method",
+      "x-ms-client-name": "apiVersion"
+    },
+    "Azure.Core.OrderByQueryParameter": {
+      "name": "orderby",
+      "in": "query",
+      "description": "Expressions that specify the order of returned results.",
+      "required": false,
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "multi",
+      "x-ms-parameter-location": "method"
+    },
+    "Azure.Core.RepeatabilityRequestHeaders.repeatabilityFirstSent": {
+      "name": "Repeatability-First-Sent",
+      "in": "header",
+      "description": "Specifies the date and time at which the request was first created.",
+      "required": false,
+      "type": "string",
+      "format": "date-time",
+      "x-ms-parameter-location": "method",
+      "x-ms-client-name": "repeatabilityFirstSent"
+    },
+    "Azure.Core.RepeatabilityRequestHeaders.repeatabilityRequestId": {
+      "name": "Repeatability-Request-ID",
+      "in": "header",
+      "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method",
+      "x-ms-client-name": "repeatabilityRequestId"
+    }
+  }
+}
