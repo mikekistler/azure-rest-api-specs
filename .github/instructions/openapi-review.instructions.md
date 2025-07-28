@@ -14,7 +14,7 @@ Please review OpenAPI v2 (Swagger) definition files with the following in mind:
 
 ## Versioning
 - Ensure the API version is clearly defined and follows the `YYYY-MM-DD` format.
-- Confirm that breaking changes are not introduced in minor version updates.
+- Confirm that breaking changes are not introduced.
 
 ## Security
 - Validate that security definitions (e.g., OAuth2 scopes) are present and correctly applied.
