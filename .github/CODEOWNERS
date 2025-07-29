@@ -309,3 +309,4 @@
 ## Copilot
 /.github/copilot-instructions.md @praveenkuttappan @maririos
 /.github/prompts/ @praveenkuttappan @maririos
+/.github/instructions/openapi-review.instructions.md @Azure/api-stewardship-board
