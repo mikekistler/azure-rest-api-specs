@@ -1,6 +1,6 @@
 
 ---
-applyTo: "**/*.json"
+applyTo: "**/data-plane/*.json"
 ---
 # Copilot Review Instructions for reviewing OpenAPI v2
 
